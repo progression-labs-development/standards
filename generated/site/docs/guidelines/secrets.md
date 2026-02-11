@@ -24,7 +24,7 @@ Authenticate using your platform's CLI:
 
 ```bash
 # AWS
-aws sso login --profile palindrom
+aws sso login --profile progression-labs
 
 # GCP
 gcloud auth application-default login
@@ -37,7 +37,7 @@ Secrets are loaded automatically by the base packages.
 
 ### GitHub Actions
 
-Prefer using `palindrom-ai/github-actions` reusable workflows which handle OIDC automatically. If writing custom workflows, use the appropriate pattern for your platform:
+Prefer using `progression-labs/github-actions` reusable workflows which handle OIDC automatically. If writing custom workflows, use the appropriate pattern for your platform:
 
 **AWS:**
 ```yaml

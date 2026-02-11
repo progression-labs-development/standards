@@ -226,9 +226,9 @@ function generateGuidelineForSite(guideline: Guideline): string {
 
 function generateSiteIndex(guidelines: Guideline[], rulesetIds: string[]): string {
   const lines: string[] = [
-    '# Palindrom Standards',
+    '# Progression Labs Standards',
     '',
-    'Composable coding standards and guidelines for Palindrom projects.',
+    'Composable coding standards and guidelines for Progression Labs projects.',
     '',
     '## Quick Links',
     '',
@@ -264,7 +264,7 @@ function generateGuidelinesIndex(guidelines: Guideline[]): string {
   const lines: string[] = [
     '# Guidelines',
     '',
-    'Architectural and implementation standards for Palindrom projects.',
+    'Architectural and implementation standards for Progression Labs projects.',
     '',
   ];
 
@@ -362,12 +362,12 @@ function generateMkDocsConfig(guidelines: Guideline[], rulesetIds: string[]): st
   const tsRulesets = rulesetIds.filter(r => r.startsWith('typescript')).sort()
     .map(id => `          - "${toTitleCase(id)}": rulesets/${id}.md`).join('\n');
 
-  return `site_name: Palindrom Standards
-site_url: https://palindrom-ai.github.io/standards/
-site_description: Composable coding standards and guidelines for Palindrom projects
+  return `site_name: Progression Labs Standards
+site_url: https://progression-labs.github.io/standards/
+site_description: Composable coding standards and guidelines for Progression Labs projects
 
-repo_name: palindrom-ai/standards
-repo_url: https://github.com/palindrom-ai/standards
+repo_name: progression-labs/standards
+repo_url: https://github.com/progression-labs/standards
 
 theme:
   name: material

@@ -11,11 +11,11 @@ summary: "Logging, tracing, and monitoring standards"
 
 ## Observability
 
-All application observability must use the `palindrom-ai/monitoring` package (SigNoz).
+All application observability must use the `progression-labs/monitoring` package (SigNoz).
 
 ### Requirements
 
-- Use `palindrom-ai/monitoring` for all logging and error tracking — never integrate SigNoz directly
+- Use `progression-labs/monitoring` for all logging and error tracking — never integrate SigNoz directly
 - Use structured JSON logging with consistent fields
 - Include `requestId` in all log entries for correlation
 - Never log secrets, passwords, or unmasked API keys
@@ -24,12 +24,12 @@ All application observability must use the `palindrom-ai/monitoring` package (Si
 
 **TypeScript:**
 ```bash
-pnpm add palindrom-ai/monitoring
+pnpm add progression-labs/monitoring
 ```
 
 **Python:**
 ```bash
-uv add palindrom-ai/monitoring
+uv add progression-labs/monitoring
 ```
 
 ### Required Log Fields
@@ -52,4 +52,4 @@ uv add palindrom-ai/monitoring
 | `warn` | Recoverable issues |
 | `error` | Failures requiring attention |
 
-Refer to [palindrom-ai/monitoring](https://github.com/palindrom-ai/monitoring) for implementation details.
+Refer to [progression-labs/monitoring](https://github.com/progression-labs/monitoring) for implementation details.

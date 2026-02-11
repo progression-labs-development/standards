@@ -1,14 +1,14 @@
 
 ## Python
 
-Python is only used when you need an existing Python `palindrom-ai/` package.
+Python is only used when you need an existing Python `progression-labs/` package.
 
 ### When to Use Python
 
 | Package / Platform | Use Case |
 |--------------------|----------|
-| `palindrom-ai/llm` | LLM services, RAG, evals |
-| `palindrom-ai/livekit-agents` | Voice/video agents |
+| `progression-labs/llm` | LLM services, RAG, evals |
+| `progression-labs/livekit-agents` | Voice/video agents |
 | AWS Lambda | Data engineering, ETL triggers, S3 event handlers |
 
 **Why Python for Lambda?** The Python Lambda ecosystem is mature with well-tested patterns for data engineering workflows. All Lambda functions are exclusively for data pipelines, not APIs.
@@ -19,21 +19,21 @@ If your service doesn't need one of these, use TypeScript instead.
 
 Use TypeScript for:
 - AWS Lambda functions
-- Backend APIs (use Fastify via `palindrom-ai/fastify-base`)
+- Backend APIs (use Fastify via `progression-labs/fastify-base`)
 - Frontend
 - Infrastructure config
 - CLI tools
 - General backend services
 
-**Note:** FastAPI is only used internally within `palindrom-ai/llm` — never build FastAPI services directly.
+**Note:** FastAPI is only used internally within `progression-labs/llm` — never build FastAPI services directly.
 
 ### Requirements
 
-- All significant Python code should be abstracted into `palindrom-ai/` packages
+- All significant Python code should be abstracted into `progression-labs/` packages
 - Standalone Python scripts are allowed but should be kept minimal (e.g., one-off scripts, simple utilities)
 - If you're writing substantial Python, you're either:
   1. Contributing to an existing package, or
-  2. Creating a new `palindrom-ai/` package
+  2. Creating a new `progression-labs/` package
 
 ### Stack
 
@@ -101,8 +101,8 @@ Commit both `pyproject.toml` and `uv.lock` to version control.
 Python code lives in dedicated package repos:
 
 ```
-palindrom-ai/llm/              # LLM package
-palindrom-ai/livekit-agents/   # LiveKit package
+progression-labs/llm/              # LLM package
+progression-labs/livekit-agents/   # LiveKit package
 ```
 
 Application repos import these packages — they don't contain Python source code.
@@ -132,7 +132,7 @@ This applies to:
 
 ### Standards Enforcement
 
-Use `@standards-kit/conform` to enforce Palindrom standards.
+Use `@standards-kit/conform` to enforce Progression Labs standards.
 
 ```bash
 uv add --dev @standards-kit/conform
@@ -150,4 +150,4 @@ Available rulesets:
 - `python-internal` — Internal tools and services
 - `python-prototype` — Experimental projects (most relaxed)
 
-Run in CI to validate project structure and configuration against Palindrom standards.
+Run in CI to validate project structure and configuration against Progression Labs standards.

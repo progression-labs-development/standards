@@ -1,6 +1,6 @@
-# Palindrom Standards
+# Progression Labs Standards
 
-Composable coding standards and guidelines for Palindrom projects.
+Composable coding standards and guidelines for Progression Labs projects.
 
 ## Quick Links
 

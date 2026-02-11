@@ -23,14 +23,14 @@ TypeScript is the default language for almost everything.
 | Infrastructure | Pulumi |
 | Configuration | ESLint, build tools |
 | CLI tools | Internal tooling |
-| Shared packages | `palindrom-ai/auth`, `palindrom-ai/monitoring` |
+| Shared packages | `progression-labs/auth`, `progression-labs/monitoring` |
 
 ### When NOT to Use TypeScript
 
 Use Python instead for:
 
-- `palindrom-ai/llm` — LLM services
-- `palindrom-ai/livekit-agents` — Voice/video agents
+- `progression-labs/llm` — LLM services
+- `progression-labs/livekit-agents` — Voice/video agents
 - **AWS Lambda functions** — Data engineering, ETL triggers (Python Lambda ecosystem is mature)
 
 See [Python guideline](./python.md) for those cases.
@@ -82,7 +82,7 @@ This applies to:
 
 ### Standards Enforcement
 
-Use `@standards-kit/conform` to enforce Palindrom standards.
+Use `@standards-kit/conform` to enforce Progression Labs standards.
 
 ```bash
 pnpm add -D @standards-kit/conform
@@ -100,4 +100,4 @@ Available rulesets:
 - `typescript-internal` — Internal tools and services
 - `typescript-prototype` — Experimental projects (most relaxed)
 
-Run in CI to validate project structure and configuration against Palindrom standards.
+Run in CI to validate project structure and configuration against Progression Labs standards.

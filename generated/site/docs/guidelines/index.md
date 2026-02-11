@@ -1,6 +1,6 @@
 # Guidelines
 
-Architectural and implementation standards for Palindrom projects.
+Architectural and implementation standards for Progression Labs projects.
 
 ## Security
 

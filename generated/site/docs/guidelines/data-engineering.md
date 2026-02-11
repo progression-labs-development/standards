@@ -4,7 +4,7 @@
 ### Requirements
 
 - All transformations in Python (PySpark)
-- Alert failures to SigNoz via `palindrom-ai/monitoring`
+- Alert failures to SigNoz via `progression-labs/monitoring`
 
 ### Stack
 

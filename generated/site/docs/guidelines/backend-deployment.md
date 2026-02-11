@@ -1,18 +1,18 @@
 
 ## Backend Deployment
 
-Use the `palindrom-ai/infra` package for all deployments.
+Use the `progression-labs/infra` package for all deployments.
 
 ### Requirements
 
-- Use `palindrom-ai/infra` for all infrastructure — never write raw Pulumi directly
+- Use `progression-labs/infra` for all infrastructure — never write raw Pulumi directly
 - Choose the right cloud for your workload (see below)
 - All infrastructure changes go through the package
 
 ### Installation
 
 ```bash
-pnpm add palindrom-ai/infra
+pnpm add progression-labs/infra
 ```
 
 ### Cloud Selection
@@ -40,7 +40,7 @@ pnpm add palindrom-ai/infra
 ### Usage
 
 ```typescript
-import { Api, Database, Storage, Secret } from 'palindrom-ai/infra';
+import { Api, Database, Storage, Secret } from 'progression-labs/infra';
 
 const db = new Database("Main");
 const bucket = new Storage("Uploads");
@@ -51,4 +51,4 @@ const api = new Api("Backend", {
 });
 ```
 
-Refer to [palindrom-ai/infra](https://github.com/palindrom-ai/infra) for full documentation.
+Refer to [progression-labs/infra](https://github.com/progression-labs/infra) for full documentation.

@@ -11,11 +11,11 @@ summary: "CI/CD pipeline standards using GitHub Actions and Pulumi"
 
 ## CI/CD & Deployment
 
-Use the `palindrom-ai/github-actions` reusable workflows for all CI/CD.
+Use the `progression-labs/github-actions` reusable workflows for all CI/CD.
 
 ### Requirements
 
-- Use `palindrom-ai/github-actions` for all workflows — never write raw workflow YAML
+- Use `progression-labs/github-actions` for all workflows — never write raw workflow YAML
 - OIDC authentication to both AWS and GCP (no static keys)
 - Cross-account OIDC policies enable AWS ↔ GCP access where needed
 - Branch-per-environment strategy (dev/stag/prod branches)
@@ -33,7 +33,7 @@ Use the `palindrom-ai/github-actions` reusable workflows for all CI/CD.
 
 ### Standards Enforcement
 
-All repos must use `@standards-kit/conform` to validate against Palindrom standards:
+All repos must use `@standards-kit/conform` to validate against Progression Labs standards:
 
 ```bash
 pnpm add -D @standards-kit/conform
@@ -59,7 +59,7 @@ New projects start simple — just `main` branch, no extra branches, no ceremony
 
 ### Backend Deployment
 
-Backend services deploy to AWS/GCP via Pulumi through `palindrom-ai/github-actions`.
+Backend services deploy to AWS/GCP via Pulumi through `progression-labs/github-actions`.
 
 | Branch | URL | AWS Account |
 |--------|-----|-------------|
@@ -142,4 +142,4 @@ All must pass before deploy:
 - Skip checks
 - Push directly to prod (always go through dev → stag first)
 
-Refer to [palindrom-ai/github-actions](https://github.com/palindrom-ai/github-actions) for usage.
+Refer to [progression-labs/github-actions](https://github.com/progression-labs/github-actions) for usage.

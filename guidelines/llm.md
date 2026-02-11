@@ -11,18 +11,18 @@ summary: "Standards for LLM services, RAG pipelines, and AI observability"
 
 ## LLM Services
 
-Use the `palindrom-ai/llm` package for all LLM functionality.
+Use the `progression-labs/llm` package for all LLM functionality.
 
 ### Requirements
 
-- Use `palindrom-ai/llm` for all LLM calls — never integrate providers directly
-- Use `palindrom-ai/llm` for all LLM observability — never integrate Langfuse directly
-- Use `palindrom-ai/llm` for RAG and evaluations
+- Use `progression-labs/llm` for all LLM calls — never integrate providers directly
+- Use `progression-labs/llm` for all LLM observability — never integrate Langfuse directly
+- Use `progression-labs/llm` for RAG and evaluations
 
 ### Installation
 
 ```bash
-uv add palindrom-ai/llm
+uv add progression-labs/llm
 ```
 
 ### What the Package Provides
@@ -58,7 +58,7 @@ All LLM calls must include:
 
 ### Correlation with App Logs
 
-Use the same `requestId` in both `palindrom-ai/monitoring` and `palindrom-ai/llm` to correlate:
+Use the same `requestId` in both `progression-labs/monitoring` and `progression-labs/llm` to correlate:
 - SigNoz error → Langfuse LLM trace
 - LLM latency spike → App request that triggered it
 
@@ -69,4 +69,4 @@ Use the same `requestId` in both `palindrom-ai/monitoring` and `palindrom-ai/llm
 - Skip metadata on LLM calls
 - Use different correlation IDs between app and LLM logs
 
-Refer to [palindrom-ai/llm](https://github.com/palindrom-ai/llm) for full documentation.
+Refer to [progression-labs/llm](https://github.com/progression-labs/llm) for full documentation.

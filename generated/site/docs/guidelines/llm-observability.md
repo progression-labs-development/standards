@@ -1,18 +1,18 @@
 
 ## LLM Observability
 
-All LLM observability must use the `palindrom-ai/llm` Python package (Langfuse).
+All LLM observability must use the `progression-labs/llm` Python package (Langfuse).
 
 ### Requirements
 
-- Use `palindrom-ai/llm` for all LLM tracing — never integrate Langfuse directly
+- Use `progression-labs/llm` for all LLM tracing — never integrate Langfuse directly
 - Include metadata on all LLM calls: project, feature, userId
 - Use the same `requestId` as app logs for correlation
 
 ### Installation
 
 ```bash
-pip install palindrom-llm
+pip install progression-labs-llm
 ```
 
 ### Required Metadata
@@ -33,4 +33,4 @@ pip install palindrom-llm
 - Success/failure
 - Prompt and response content
 
-Refer to [palindrom-ai/llm](https://github.com/palindrom-ai/llm) for implementation details.
+Refer to [progression-labs/llm](https://github.com/progression-labs/llm) for implementation details.

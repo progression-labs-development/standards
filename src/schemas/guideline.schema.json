@@ -1,6 +1,6 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "$id": "https://github.com/palindrom-ai/standards/schemas/guideline.schema.json",
+  "$id": "https://github.com/progression-labs/standards/schemas/guideline.schema.json",
   "title": "Guideline",
   "description": "Schema for guideline frontmatter",
   "type": "object",

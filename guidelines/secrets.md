@@ -15,10 +15,10 @@ All secrets must be stored in the cloud platform's secrets manager. No local `.e
 
 ### Creating Secrets
 
-Always create secrets using the `palindrom-ai/infra` package. Never use `gcloud`, `aws`, or `az` CLI commands to create or delete secret resources.
+Always create secrets using the `progression-labs/infra` package. Never use `gcloud`, `aws`, or `az` CLI commands to create or delete secret resources.
 
 ```typescript
-import { Secret } from 'palindrom-ai/infra';
+import { Secret } from 'progression-labs/infra';
 
 const apiKey = new Secret("StripeApiKey");
 ```
@@ -48,7 +48,7 @@ Use the secrets manager corresponding to your project's cloud platform:
 
 - No `.env` files — never store secrets locally
 - All secrets in the platform's secrets manager
-- All secret creation/deletion goes through `palindrom-ai/infra`
+- All secret creation/deletion goes through `progression-labs/infra`
 - Local dev authenticates via platform CLI (AWS SSO, `gcloud auth`, `az login`)
 - CI/CD authenticates via OIDC (no static keys)
 
@@ -58,7 +58,7 @@ Authenticate using your platform's CLI to **load** secrets at runtime:
 
 ```bash
 # AWS
-aws sso login --profile palindrom
+aws sso login --profile progression-labs
 
 # GCP
 gcloud auth application-default login
@@ -71,7 +71,7 @@ Secrets are loaded automatically by the base packages. CLI usage is only for aut
 
 ### GitHub Actions
 
-Prefer using `palindrom-ai/github-actions` reusable workflows which handle OIDC automatically. If writing custom workflows, use the appropriate pattern for your platform:
+Prefer using `progression-labs/github-actions` reusable workflows which handle OIDC automatically. If writing custom workflows, use the appropriate pattern for your platform:
 
 **AWS:**
 ```yaml
@@ -129,4 +129,4 @@ Examples: `api/production`, `llm-service/staging`
 - Put sensitive values in Pulumi code, config, or stack outputs
 - Commit secrets to git
 - Share secrets via Slack
-- Write raw Pulumi secret resources instead of using `palindrom-ai/infra`
+- Write raw Pulumi secret resources instead of using `progression-labs/infra`
