@@ -15,8 +15,8 @@ All APIs must use the standard base packages with Zod as the single source of tr
 
 ### Requirements
 
-- Use `progression-labs/fastify-api` for TypeScript APIs (Fastify)
-- Use `progression-labs/llm` for Python LLM APIs (FastAPI is wrapped inside — never build FastAPI directly)
+- Use `chrismlittle123/fastify-api` for TypeScript APIs (Fastify)
+- Use `chrismlittle123/llm` for Python LLM APIs (FastAPI is wrapped inside — never build FastAPI directly)
 - Define all schemas in Zod (TypeScript)
 - Generate OpenAPI from Zod, generate Pydantic from OpenAPI
 - Check generated files into version control
@@ -32,12 +32,12 @@ Zod schemas ──► fastify-api ──► openapi.yaml ──► llm package �
 
 **TypeScript:**
 ```bash
-pnpm add progression-labs/fastify-api
+pnpm add chrismlittle123/fastify-api
 ```
 
 **Python:**
 ```bash
-uv add progression-labs/llm
+uv add chrismlittle123/llm
 ```
 
 ### Generation Commands

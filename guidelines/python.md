@@ -11,14 +11,14 @@ summary: "Python language standards for LLM and data services"
 
 ## Python
 
-Python is only used when you need an existing Python `progression-labs/` package.
+Python is only used when you need an existing Python `chrismlittle123/` package.
 
 ### When to Use Python
 
 | Package / Platform | Use Case |
 |--------------------|----------|
-| `progression-labs/llm` | LLM services, RAG, evals |
-| `progression-labs/livekit-agents` | Voice/video agents |
+| `chrismlittle123/llm` | LLM services, RAG, evals |
+| `chrismlittle123/livekit-agents` | Voice/video agents |
 | AWS Lambda | Data engineering, ETL triggers, S3 event handlers |
 
 **Why Python for Lambda?** The Python Lambda ecosystem is mature with well-tested patterns for data engineering workflows. All Lambda functions are exclusively for data pipelines, not APIs.
@@ -28,21 +28,21 @@ If your service doesn't need one of these, use TypeScript instead.
 ### When NOT to Use Python
 
 Use TypeScript for:
-- Backend APIs (use Fastify via `progression-labs/fastify-api`)
+- Backend APIs (use Fastify via `chrismlittle123/fastify-api`)
 - Frontend
 - Infrastructure config
 - CLI tools
 - General backend services
 
-**Note:** FastAPI is only used internally within `progression-labs/llm` — never build FastAPI services directly.
+**Note:** FastAPI is only used internally within `chrismlittle123/llm` — never build FastAPI services directly.
 
 ### Requirements
 
-- All significant Python code should be abstracted into `progression-labs/` packages
+- All significant Python code should be abstracted into `chrismlittle123/` packages
 - Standalone Python scripts are allowed but should be kept minimal (e.g., one-off scripts, simple utilities)
 - If you're writing substantial Python, you're either:
   1. Contributing to an existing package, or
-  2. Creating a new `progression-labs/` package
+  2. Creating a new `chrismlittle123/` package
 
 ### Stack
 
@@ -110,8 +110,8 @@ Commit both `pyproject.toml` and `uv.lock` to version control.
 Python code lives in dedicated package repos:
 
 ```
-progression-labs/llm/              # LLM package
-progression-labs/livekit-agents/   # LiveKit package
+chrismlittle123/llm/              # LLM package
+chrismlittle123/livekit-agents/   # LiveKit package
 ```
 
 Application repos import these packages — they don't contain Python source code.

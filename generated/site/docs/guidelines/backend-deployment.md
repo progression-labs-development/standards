@@ -1,18 +1,18 @@
 
 ## Backend Deployment
 
-Use the `progression-labs/infra` package for all deployments.
+Use the `chrismlittle123/infra` package for all deployments.
 
 ### Requirements
 
-- Use `progression-labs/infra` for all infrastructure — never write raw Pulumi directly
+- Use `chrismlittle123/infra` for all infrastructure — never write raw Pulumi directly
 - Choose the right cloud for your workload (see below)
 - All infrastructure changes go through the package
 
 ### Installation
 
 ```bash
-pnpm add progression-labs/infra
+pnpm add chrismlittle123/infra
 ```
 
 ### Cloud Selection
@@ -40,7 +40,7 @@ pnpm add progression-labs/infra
 ### Usage
 
 ```typescript
-import { Api, Database, Storage, Secret } from 'progression-labs/infra';
+import { Api, Database, Storage, Secret } from 'chrismlittle123/infra';
 
 const db = new Database("Main");
 const bucket = new Storage("Uploads");
@@ -51,4 +51,4 @@ const api = new Api("Backend", {
 });
 ```
 
-Refer to [progression-labs/infra](https://github.com/progression-labs/infra) for full documentation.
+Refer to [chrismlittle123/infra](https://github.com/chrismlittle123/infra) for full documentation.

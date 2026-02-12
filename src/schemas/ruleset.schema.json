@@ -1,6 +1,6 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "$id": "https://github.com/progression-labs/standards/schemas/ruleset.schema.json",
+  "$id": "https://github.com/chrismlittle123/standards/schemas/ruleset.schema.json",
   "title": "Ruleset",
   "description": "Schema for ruleset TOML configuration",
   "type": "object",

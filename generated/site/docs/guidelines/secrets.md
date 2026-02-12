@@ -24,7 +24,7 @@ Authenticate using your platform's CLI:
 
 ```bash
 # AWS
-aws sso login --profile progression-labs
+aws sso login --profile chrismlittle123
 
 # GCP
 gcloud auth application-default login
@@ -37,7 +37,7 @@ Secrets are loaded automatically by the base packages.
 
 ### GitHub Actions
 
-Prefer using `progression-labs/github-actions` reusable workflows which handle OIDC automatically. If writing custom workflows, use the appropriate pattern for your platform:
+Prefer using `chrismlittle123/github-actions` reusable workflows which handle OIDC automatically. If writing custom workflows, use the appropriate pattern for your platform:
 
 **AWS:**
 ```yaml

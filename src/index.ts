@@ -363,11 +363,11 @@ function generateMkDocsConfig(guidelines: Guideline[], rulesetIds: string[]): st
     .map(id => `          - "${toTitleCase(id)}": rulesets/${id}.md`).join('\n');
 
   return `site_name: Progression Labs Standards
-site_url: https://progression-labs.github.io/standards/
+site_url: https://chrismlittle123.github.io/standards/
 site_description: Composable coding standards and guidelines for Progression Labs projects
 
-repo_name: progression-labs/standards
-repo_url: https://github.com/progression-labs/standards
+repo_name: chrismlittle123/standards
+repo_url: https://github.com/chrismlittle123/standards
 
 theme:
   name: material

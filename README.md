@@ -29,16 +29,16 @@ tags: [typescript, database, postgresql, drizzle, orm, backend]
 
 | Guideline | Tags | Summary |
 |-----------|------|---------|
-| `auth` | typescript, python, auth, security, backend | Use `@progression-labs/auth` |
+| `auth` | typescript, python, auth, security, backend | Use `@chrismlittle123/auth` |
 | `api-contracts` | typescript, python, api, zod, pydantic, backend | Zod → OpenAPI → Pydantic |
 | `backend-deployment` | typescript, python, gcp, cloud-run, cloud-functions, deployment, backend | Cloud Run for heavy, Cloud Functions for simple |
 | `ci-cd` | typescript, python, github-actions, pulumi, deployment | GitHub Actions + Pulumi |
 | `data-engineering` | python, databricks, pyspark, data, etl | Databricks + medallion architecture |
 | `database` | typescript, database, postgresql, drizzle, orm, backend | RDS PostgreSQL + Drizzle ORM |
 | `error-handling` | typescript, python, errors, backend | Structured errors with AppError |
-| `frontend` | typescript, nextjs, react, frontend, vercel | Next.js + `progression-labs/ui` + Vercel |
-| `llm-observability` | python, llm, langfuse, observability, ai | Langfuse via `progression-labs/llm` |
-| `observability` | typescript, python, logging, observability, backend | SigNoz via `progression-labs/monitoring` |
+| `frontend` | typescript, nextjs, react, frontend, vercel | Next.js + `chrismlittle123/ui` + Vercel |
+| `llm-observability` | python, llm, langfuse, observability, ai | Langfuse via `chrismlittle123/llm` |
+| `observability` | typescript, python, logging, observability, backend | SigNoz via `chrismlittle123/monitoring` |
 | `secrets` | typescript, python, secrets, security, cloud | Platform secrets manager (AWS/GCP/Azure) |
 
 ## Rulesets

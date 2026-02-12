@@ -1,18 +1,18 @@
 
 ## LLM Observability
 
-All LLM observability must use the `progression-labs/llm` Python package (Langfuse).
+All LLM observability must use the `chrismlittle123/llm` Python package (Langfuse).
 
 ### Requirements
 
-- Use `progression-labs/llm` for all LLM tracing — never integrate Langfuse directly
+- Use `chrismlittle123/llm` for all LLM tracing — never integrate Langfuse directly
 - Include metadata on all LLM calls: project, feature, userId
 - Use the same `requestId` as app logs for correlation
 
 ### Installation
 
 ```bash
-pip install progression-labs-llm
+pip install chrismlittle123-llm
 ```
 
 ### Required Metadata
@@ -33,4 +33,4 @@ pip install progression-labs-llm
 - Success/failure
 - Prompt and response content
 
-Refer to [progression-labs/llm](https://github.com/progression-labs/llm) for implementation details.
+Refer to [chrismlittle123/llm](https://github.com/chrismlittle123/llm) for implementation details.

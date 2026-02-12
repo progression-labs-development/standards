@@ -1,11 +1,11 @@
 
 ## Observability
 
-All application observability must use the `progression-labs/monitoring` package (SigNoz).
+All application observability must use the `chrismlittle123/monitoring` package (SigNoz).
 
 ### Requirements
 
-- Use `progression-labs/monitoring` for all logging and error tracking — never integrate SigNoz directly
+- Use `chrismlittle123/monitoring` for all logging and error tracking — never integrate SigNoz directly
 - Use structured JSON logging with consistent fields
 - Include `requestId` in all log entries for correlation
 - Never log secrets, passwords, or unmasked API keys
@@ -14,12 +14,12 @@ All application observability must use the `progression-labs/monitoring` package
 
 **TypeScript:**
 ```bash
-pnpm add progression-labs/monitoring
+pnpm add chrismlittle123/monitoring
 ```
 
 **Python:**
 ```bash
-uv add progression-labs/monitoring
+uv add chrismlittle123/monitoring
 ```
 
 ### Required Log Fields
@@ -42,4 +42,4 @@ uv add progression-labs/monitoring
 | `warn` | Recoverable issues |
 | `error` | Failures requiring attention |
 
-Refer to [progression-labs/monitoring](https://github.com/progression-labs/monitoring) for implementation details.
+Refer to [chrismlittle123/monitoring](https://github.com/chrismlittle123/monitoring) for implementation details.

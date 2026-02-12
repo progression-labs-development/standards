@@ -23,14 +23,14 @@ TypeScript is the default language for almost everything.
 | Infrastructure | Pulumi |
 | Configuration | ESLint, build tools |
 | CLI tools | Internal tooling |
-| Shared packages | `progression-labs/auth`, `progression-labs/monitoring` |
+| Shared packages | `chrismlittle123/auth`, `chrismlittle123/monitoring` |
 
 ### When NOT to Use TypeScript
 
 Use Python instead for:
 
-- `progression-labs/llm` — LLM services
-- `progression-labs/livekit-agents` — Voice/video agents
+- `chrismlittle123/llm` — LLM services
+- `chrismlittle123/livekit-agents` — Voice/video agents
 - **AWS Lambda functions** — Data engineering, ETL triggers (Python Lambda ecosystem is mature)
 
 See [Python guideline](./python.md) for those cases.

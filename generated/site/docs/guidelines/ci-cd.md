@@ -1,11 +1,11 @@
 
 ## CI/CD & Deployment
 
-Use the `progression-labs/github-actions` reusable workflows for all CI/CD.
+Use the `chrismlittle123/github-actions` reusable workflows for all CI/CD.
 
 ### Requirements
 
-- Use `progression-labs/github-actions` for all workflows — never write raw workflow YAML
+- Use `chrismlittle123/github-actions` for all workflows — never write raw workflow YAML
 - OIDC authentication to both AWS and GCP (no static keys)
 - Cross-account OIDC policies enable AWS ↔ GCP access where needed
 - Branch-per-environment strategy (dev/stag/prod branches)
@@ -132,4 +132,4 @@ All must pass before deploy:
 - Skip checks
 - Push directly to prod (always go through dev → stag first)
 
-Refer to [progression-labs/github-actions](https://github.com/progression-labs/github-actions) for usage.
+Refer to [chrismlittle123/github-actions](https://github.com/chrismlittle123/github-actions) for usage.
