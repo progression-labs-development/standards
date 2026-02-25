@@ -8,9 +8,8 @@ Composable coding standards for AI-assisted development.
 standards/
 ├── guidelines/     # Individual standards (Markdown with frontmatter)
 ├── rulesets/       # Tool configurations (TOML)
-├── schemas/        # JSON schemas for validation
-├── generator/      # Ruleset documentation generator
-└── generated/      # Generated ruleset docs
+├── src/            # Generator (TypeScript)
+└── generated/      # Auto-generated output (do not edit)
 ```
 
 ## Guidelines
@@ -27,19 +26,24 @@ tags: [typescript, database, postgresql, drizzle, orm, backend]
 ---
 ```
 
-| Guideline | Tags | Summary |
-|-----------|------|---------|
-| `auth` | typescript, python, auth, security, backend | Use `@chrismlittle123/auth` |
-| `api-contracts` | typescript, python, api, zod, pydantic, backend | Zod → OpenAPI → Pydantic |
-| `backend-deployment` | typescript, python, gcp, cloud-run, cloud-functions, deployment, backend | Cloud Run for heavy, Cloud Functions for simple |
-| `ci-cd` | typescript, python, github-actions, pulumi, deployment | GitHub Actions + Pulumi |
-| `data-engineering` | python, databricks, pyspark, data, etl | Databricks + medallion architecture |
-| `database` | typescript, database, postgresql, drizzle, orm, backend | RDS PostgreSQL + Drizzle ORM |
-| `error-handling` | typescript, python, errors, backend | Structured errors with AppError |
-| `frontend` | typescript, nextjs, react, frontend, vercel | Next.js + `chrismlittle123/ui` + Vercel |
-| `llm-observability` | python, llm, langfuse, observability, ai | Langfuse via `chrismlittle123/llm` |
-| `observability` | typescript, python, logging, observability, backend | SigNoz via `chrismlittle123/monitoring` |
-| `secrets` | typescript, python, secrets, security, cloud | Platform secrets manager (AWS/GCP/Azure) |
+| Guideline | Category | Tags | Summary |
+|-----------|----------|------|---------|
+| `auth` | security | typescript, python, auth, security, backend | Authentication patterns and session management |
+| `backend-deployment` | infrastructure | typescript, python, gcp, aws, cloud-run, cloud-functions, deployment, backend | Deployment standards for backend services on GCP and AWS |
+| `ci-cd` | operations | typescript, python, github-actions, pulumi, deployment, aws, gcp | CI/CD pipeline standards using GitHub Actions and Pulumi |
+| `conventions` | architecture | typescript, python, json, api, backend, frontend | Data format conventions for JSON, dates, IDs, and naming |
+| `data-engineering` | data | python, pyspark, data, etl, s3, aws | Data engineering standards for ETL pipelines and PySpark |
+| `database` | infrastructure | typescript, database, postgresql, drizzle, orm, backend | Database standards for PostgreSQL, Drizzle ORM, and migrations |
+| `frontend` | architecture | typescript, nextjs, react, frontend, vercel | Frontend architecture standards for Next.js and React |
+| `llm` | operations | python, llm, langfuse, observability, ai, rag, evals | Standards for LLM services, RAG pipelines, and AI observability |
+| `monorepo` | architecture | typescript, pnpm, monorepo | Monorepo structure and pnpm workspace standards |
+| `observability` | operations | typescript, python, logging, observability, backend | Logging, tracing, and monitoring standards |
+| `python` | architecture | python, uv, pydantic, ruff, llm, livekit-agents | Python language standards for LLM and data services |
+| `repository` | architecture | repository, metadata, standards | Repository metadata, structure, and documentation standards |
+| `rest-apis` | architecture | typescript, python, api, zod, pydantic, backend | REST API design standards including validation and error handling |
+| `secrets` | security | typescript, python, security, infrastructure, gcp, aws, secrets, deployment | Standards for creating, storing, and accessing secrets |
+| `testing` | architecture | typescript, python, testing, unit, integration, e2e | Testing standards for unit, integration, and e2e tests |
+| `typescript` | architecture | typescript, nodejs, pnpm, eslint, backend, frontend | TypeScript language and tooling standards for all services |
 
 ## Rulesets
 
@@ -50,6 +54,8 @@ Tool configurations at different strictness levels:
 | `typescript-production` | TypeScript | Strict |
 | `typescript-internal` | TypeScript | Medium |
 | `typescript-prototype` | TypeScript | Relaxed |
+| `typescript-frontend-production` | TypeScript (Frontend) | Strict |
+| `typescript-frontend-internal` | TypeScript (Frontend) | Medium |
 | `python-production` | Python | Strict |
 | `python-internal` | Python | Medium |
 | `python-prototype` | Python | Relaxed |
@@ -69,9 +75,3 @@ The MCP server:
 2. Matches guidelines to project context
 3. Composes relevant standards into a single document
 4. Returns to the AI agent
-
-## Schemas
-
-JSON schemas for validation:
-- `schemas/guideline.schema.json` - Guideline frontmatter schema
-- `schemas/ruleset.schema.json` - Ruleset TOML schema

@@ -3,7 +3,7 @@ id: testing
 title: Testing
 category: architecture
 priority: 2
-tags: [testing, unit, integration, e2e]
+tags: [typescript, python, testing, unit, integration, e2e]
 author: Engineering Team
 lastUpdated: "2024-03-15"
 summary: "Testing standards for unit, integration, and e2e tests"

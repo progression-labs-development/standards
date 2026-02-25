@@ -3,7 +3,7 @@ id: data-engineering
 title: Data Engineering
 category: data
 priority: 3
-tags: [python, pyspark, data, etl]
+tags: [python, pyspark, data, etl, s3, aws]
 author: Engineering Team
 lastUpdated: "2024-03-15"
 summary: "Data engineering standards for ETL pipelines and PySpark"
@@ -14,7 +14,7 @@ summary: "Data engineering standards for ETL pipelines and PySpark"
 ### Requirements
 
 - All transformations in Python (PySpark)
-- Alert failures to SigNoz via `chrismlittle123/monitoring`
+- Alert failures to SigNoz via `progression-labs-development/monitoring`
 
 ### Stack
 

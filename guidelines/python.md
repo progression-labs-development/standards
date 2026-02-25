@@ -3,7 +3,7 @@ id: python
 title: Python
 category: architecture
 priority: 2
-tags: [python, llm, livekit-agents]
+tags: [python, uv, pydantic, ruff, llm, livekit-agents]
 author: Engineering Team
 lastUpdated: "2024-03-15"
 summary: "Python language standards for LLM and data services"
@@ -11,14 +11,14 @@ summary: "Python language standards for LLM and data services"
 
 ## Python
 
-Python is only used when you need an existing Python `chrismlittle123/` package.
+Python is only used when you need an existing Python `progression-labs-development/` package.
 
 ### When to Use Python
 
 | Package / Platform | Use Case |
 |--------------------|----------|
-| `chrismlittle123/llm` | LLM services, RAG, evals |
-| `chrismlittle123/livekit-agents` | Voice/video agents |
+| `progression-labs-development/llm` | LLM services, RAG, evals |
+| `progression-labs-development/livekit-agents` | Voice/video agents |
 | AWS Lambda | Data engineering, ETL triggers, S3 event handlers |
 
 **Why Python for Lambda?** The Python Lambda ecosystem is mature with well-tested patterns for data engineering workflows. All Lambda functions are exclusively for data pipelines, not APIs.
@@ -28,21 +28,21 @@ If your service doesn't need one of these, use TypeScript instead.
 ### When NOT to Use Python
 
 Use TypeScript for:
-- Backend APIs (use Fastify via `chrismlittle123/fastify-api`)
+- Backend APIs (use Fastify via `progression-labs-development/fastify-api`)
 - Frontend
 - Infrastructure config
 - CLI tools
 - General backend services
 
-**Note:** FastAPI is only used internally within `chrismlittle123/llm` — never build FastAPI services directly.
+**Note:** FastAPI is only used internally within `progression-labs-development/llm` — never build FastAPI services directly.
 
 ### Requirements
 
-- All significant Python code should be abstracted into `chrismlittle123/` packages
+- All significant Python code should be abstracted into `progression-labs-development/` packages
 - Standalone Python scripts are allowed but should be kept minimal (e.g., one-off scripts, simple utilities)
 - If you're writing substantial Python, you're either:
   1. Contributing to an existing package, or
-  2. Creating a new `chrismlittle123/` package
+  2. Creating a new `progression-labs-development/` package
 
 ### Stack
 
@@ -110,8 +110,8 @@ Commit both `pyproject.toml` and `uv.lock` to version control.
 Python code lives in dedicated package repos:
 
 ```
-chrismlittle123/llm/              # LLM package
-chrismlittle123/livekit-agents/   # LiveKit package
+progression-labs-development/llm/              # LLM package
+progression-labs-development/livekit-agents/   # LiveKit package
 ```
 
 Application repos import these packages — they don't contain Python source code.

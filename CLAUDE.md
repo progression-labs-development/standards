@@ -47,7 +47,7 @@ TOML files in `rulesets/` defining tool configurations at different strictness t
 ## CI/CD
 
 - `deploy-pages.yml` — on push to `main`: installs deps, runs `pnpm generate`, builds MkDocs site, deploys to GitHub Pages
-- Site URL: https://chrismlittle123.github.io/standards/
+- Site URL: https://progression-labs-development.github.io/standards/
 
 ## Workflow
 

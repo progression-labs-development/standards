@@ -11,11 +11,11 @@ summary: "Logging, tracing, and monitoring standards"
 
 ## Observability
 
-All application observability must use the `chrismlittle123/monitoring` package (SigNoz).
+All application observability must use the `progression-labs-development/monitoring` package (SigNoz).
 
 ### Requirements
 
-- Use `chrismlittle123/monitoring` for all logging and error tracking — never integrate SigNoz directly
+- Use `progression-labs-development/monitoring` for all logging and error tracking — never integrate SigNoz directly
 - Use structured JSON logging with consistent fields
 - Include `requestId` in all log entries for correlation
 - Never log secrets, passwords, or unmasked API keys
@@ -24,12 +24,12 @@ All application observability must use the `chrismlittle123/monitoring` package 
 
 **TypeScript:**
 ```bash
-pnpm add chrismlittle123/monitoring
+pnpm add progression-labs-development/monitoring
 ```
 
 **Python:**
 ```bash
-uv add chrismlittle123/monitoring
+uv add progression-labs-development/monitoring
 ```
 
 ### Required Log Fields
@@ -52,4 +52,4 @@ uv add chrismlittle123/monitoring
 | `warn` | Recoverable issues |
 | `error` | Failures requiring attention |
 
-Refer to [chrismlittle123/monitoring](https://github.com/chrismlittle123/monitoring) for implementation details.
+Refer to [progression-labs-development/monitoring](https://github.com/progression-labs-development/monitoring) for implementation details.

@@ -3,7 +3,7 @@ id: secrets
 title: Secrets Management
 category: security
 priority: 2
-tags: [security, infrastructure, gcp, aws, secrets, deployment]
+tags: [typescript, python, security, infrastructure, gcp, aws, secrets, deployment]
 author: Engineering Team
 lastUpdated: "2024-03-15"
 summary: "Standards for creating, storing, and accessing secrets across all environments"
@@ -15,10 +15,10 @@ All secrets must be stored in the cloud platform's secrets manager. No local `.e
 
 ### Creating Secrets
 
-Always create secrets using the `chrismlittle123/infra` package. Never use `gcloud`, `aws`, or `az` CLI commands to create or delete secret resources.
+Always create secrets using the `progression-labs-development/infra` package. Never use `gcloud`, `aws`, or `az` CLI commands to create or delete secret resources.
 
 ```typescript
-import { Secret } from 'chrismlittle123/infra';
+import { Secret } from 'progression-labs-development/infra';
 
 const apiKey = new Secret("StripeApiKey");
 ```
@@ -48,7 +48,7 @@ Use the secrets manager corresponding to your project's cloud platform:
 
 - No `.env` files — never store secrets locally
 - All secrets in the platform's secrets manager
-- All secret creation/deletion goes through `chrismlittle123/infra`
+- All secret creation/deletion goes through `progression-labs-development/infra`
 - Local dev authenticates via platform CLI (AWS SSO, `gcloud auth`, `az login`)
 - CI/CD authenticates via OIDC (no static keys)
 
@@ -58,7 +58,7 @@ Authenticate using your platform's CLI to **load** secrets at runtime:
 
 ```bash
 # AWS
-aws sso login --profile chrismlittle123
+aws sso login --profile progression-labs-development
 
 # GCP
 gcloud auth application-default login
@@ -71,7 +71,7 @@ Secrets are loaded automatically by the base packages. CLI usage is only for aut
 
 ### GitHub Actions
 
-Prefer using `chrismlittle123/github-actions` reusable workflows which handle OIDC automatically. If writing custom workflows, use the appropriate pattern for your platform:
+Prefer using `progression-labs-development/github-actions` reusable workflows which handle OIDC automatically. If writing custom workflows, use the appropriate pattern for your platform:
 
 **AWS:**
 ```yaml
@@ -129,4 +129,4 @@ Examples: `api/production`, `llm-service/staging`
 - Put sensitive values in Pulumi code, config, or stack outputs
 - Commit secrets to git
 - Share secrets via Slack
-- Write raw Pulumi secret resources instead of using `chrismlittle123/infra`
+- Write raw Pulumi secret resources instead of using `progression-labs-development/infra`

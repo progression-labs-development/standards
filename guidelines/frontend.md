@@ -11,14 +11,14 @@ summary: "Frontend architecture standards for Next.js and React"
 
 ## Frontend
 
-All frontends use Next.js with the `chrismlittle123/ui` component library.
+All frontends use Next.js with the `progression-labs-development/ui` component library.
 
 ### Stack
 
 - Next.js (App Router)
 - TypeScript
 - Tailwind CSS
-- `chrismlittle123/ui` (shared component library)
+- `progression-labs-development/ui` (shared component library)
 - Vercel for deployment
 
 ### Architecture
@@ -42,19 +42,19 @@ Only allowed as a thin BFF layer:
 
 ### Components
 
-Use `chrismlittle123/ui` for all standard components. This gives all Progression Labs apps a consistent look and feel.
+Use `progression-labs-development/ui` for all standard components. This gives all Progression Labs apps a consistent look and feel.
 
 ```bash
-pnpm add chrismlittle123/ui
+pnpm add progression-labs-development/ui
 ```
 
-- Use `chrismlittle123/ui` components by default for simplicity
+- Use `progression-labs-development/ui` components by default for simplicity
 - Custom components are allowed when needed, but prefer extending the library
 - Built with React + Tailwind CSS
 
 ### API Client Generation
 
-`chrismlittle123/ui` includes tooling to generate a typed API client from your backend's OpenAPI spec. Works with both TypeScript (Fastify) and Python (FastAPI via `chrismlittle123/llm`) backends.
+`progression-labs-development/ui` includes tooling to generate a typed API client from your backend's OpenAPI spec. Works with both TypeScript (Fastify) and Python (FastAPI via `progression-labs-development/llm`) backends.
 
 - Type-safe frontend API calls
 - Stays in sync with backend schemas (Zod → OpenAPI → client)

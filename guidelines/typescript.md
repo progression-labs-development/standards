@@ -3,7 +3,7 @@ id: typescript
 title: TypeScript
 category: architecture
 priority: 1
-tags: [typescript, nodejs, backend, frontend]
+tags: [typescript, nodejs, pnpm, eslint, backend, frontend]
 author: Engineering Team
 lastUpdated: "2024-03-15"
 summary: "TypeScript language and tooling standards for all services"
@@ -23,14 +23,14 @@ TypeScript is the default language for almost everything.
 | Infrastructure | Pulumi |
 | Configuration | ESLint, build tools |
 | CLI tools | Internal tooling |
-| Shared packages | `chrismlittle123/auth`, `chrismlittle123/monitoring` |
+| Shared packages | `progression-labs-development/auth`, `progression-labs-development/monitoring` |
 
 ### When NOT to Use TypeScript
 
 Use Python instead for:
 
-- `chrismlittle123/llm` — LLM services
-- `chrismlittle123/livekit-agents` — Voice/video agents
+- `progression-labs-development/llm` — LLM services
+- `progression-labs-development/livekit-agents` — Voice/video agents
 - **AWS Lambda functions** — Data engineering, ETL triggers (Python Lambda ecosystem is mature)
 
 See [Python guideline](./python.md) for those cases.
@@ -56,8 +56,6 @@ See [Python guideline](./python.md) for those cases.
 - Use pnpm (not npm or yarn)
 - Use ESLint for linting
 - Use `@standards-kit/conform` to enforce standards
-
-
 - See [Testing guideline](./testing.md) for test structure
 
 ### Constants

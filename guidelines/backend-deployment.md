@@ -11,18 +11,18 @@ summary: "Deployment standards for backend services on GCP and AWS"
 
 ## Backend Deployment
 
-Use the `chrismlittle123/infra` package for all deployments.
+Use the `progression-labs-development/infra` package for all deployments.
 
 ### Requirements
 
-- Use `chrismlittle123/infra` for all infrastructure — never write raw Pulumi directly
+- Use `progression-labs-development/infra` for all infrastructure — never write raw Pulumi directly
 - Choose the right cloud for your workload (see below)
 - All infrastructure changes go through the package
 
 ### Installation
 
 ```bash
-pnpm add chrismlittle123/infra
+pnpm add progression-labs-development/infra
 ```
 
 ### Cloud Selection
@@ -50,7 +50,7 @@ pnpm add chrismlittle123/infra
 ### Usage
 
 ```typescript
-import { Api, Database, Storage, Secret } from 'chrismlittle123/infra';
+import { Api, Database, Storage, Secret } from 'progression-labs-development/infra';
 
 const db = new Database("Main");
 const bucket = new Storage("Uploads");
@@ -61,4 +61,4 @@ const api = new Api("Backend", {
 });
 ```
 
-Refer to [chrismlittle123/infra](https://github.com/chrismlittle123/infra) for full documentation.
+Refer to [progression-labs-development/infra](https://github.com/progression-labs-development/infra) for full documentation.
