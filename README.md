@@ -7,9 +7,7 @@ Composable coding standards for AI-assisted development.
 ```
 standards/
 ├── guidelines/     # Individual standards (Markdown with frontmatter)
-├── rulesets/       # Tool configurations (TOML)
-├── src/            # Generator (TypeScript)
-└── generated/      # Auto-generated output (do not edit)
+└── rulesets/       # Tool configurations (TOML)
 ```
 
 ## Guidelines
@@ -60,10 +58,13 @@ Tool configurations at different strictness levels:
 | `python-internal` | Python | Medium |
 | `python-prototype` | Python | Relaxed |
 
-Generate ruleset documentation:
+## Validation
+
+Validate guidelines and rulesets using `@standards-kit/conform`:
 
 ```bash
-pnpm generate
+npx @standards-kit/conform validate registry       # Validate rulesets/*.toml
+npx @standards-kit/conform validate guidelines ./guidelines  # Validate guideline frontmatter
 ```
 
 ## Usage
