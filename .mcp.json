@@ -1,8 +1,0 @@
-{
-  "mcpServers": {
-    "cm-standards": {
-      "command": "npx",
-      "args": ["@standards-kit/conform@latest", "mcp"]
-    }
-  }
-}
