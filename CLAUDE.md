@@ -1,54 +1,66 @@
-# Agent Instructions
+# CLAUDE.md
+
+This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
 
 ## Project Overview
 
-standards is the central registry of coding standards, guidelines, and rulesets. Built with TypeScript.
+This is the central registry of coding standards, guidelines, and rulesets for Progression Labs. It produces two outputs:
+1. A MkDocs Material documentation site deployed to GitHub Pages
+2. Generated markdown consumed by the `@standards-kit/conform` MCP server
 
-- **Tier:** internal
-- **Package:** `standards` (registry)
-
-## Quick Reference
+## Commands
 
 | Task | Command |
 |------|---------|
 | Install | `pnpm install` |
-| Generate | `pnpm generate` |
+| Generate all output | `pnpm generate` |
+| Build TypeScript | `pnpm build` |
+| Dev (watch mode) | `pnpm dev` |
+
+After modifying any guideline (`guidelines/*.md`) or ruleset (`rulesets/*.toml`), run `pnpm generate` to regenerate the `generated/` directory.
 
 ## Architecture
 
-```
-guidelines/    # Markdown guideline documents
-rulesets/      # TOML ruleset definitions (e.g., typescript-production.toml)
-generated/     # Auto-generated output (do not edit directly)
-scripts/       # Build/generation scripts
-templates/     # Templates (e.g., CLAUDE.md.template)
-```
+The generator (`src/index.ts`) is a single-file TypeScript script that:
+1. Reads TOML rulesets from `rulesets/` and converts them to markdown
+2. Reads markdown guidelines from `guidelines/`, validates their YAML frontmatter against schema constraints
+3. Outputs everything into `generated/` — both raw ruleset markdown and a full MkDocs site structure (`generated/site/docs/` + `mkdocs.yml`)
 
-## Standards & Guidelines
+### Guidelines
 
-This project is the standards registry itself — it defines the guidelines and rulesets consumed by all other repos.
+Markdown files in `guidelines/` with YAML frontmatter. Required frontmatter fields:
+- `id` — kebab-case identifier (must match `^[a-z][a-z0-9-]*$`)
+- `title` — display name
+- `category` — one of: `security`, `architecture`, `infrastructure`, `operations`, `data`, `reliability`
+- `priority` — integer >= 1 (lower = higher priority, controls sort order)
+- `tags` — array of kebab-case strings used by the MCP server for context matching
 
-- **Guidelines:** https://chrismlittle123.github.io/standards/
-- **Rulesets:** `rulesets/*.toml` define tool configurations per tier
+### Rulesets
 
-Use the MCP tools to query standards at any time:
+TOML files in `rulesets/` defining tool configurations at different strictness tiers (production/internal/prototype) for TypeScript and Python. The TOML structure uses nested sections (e.g., `[code.linting.eslint.rules]`) that get rendered into hierarchical markdown.
 
-| Tool | Purpose |
-|------|---------|
-| `get_standards` | Get guidelines matching a context (e.g., `typescript fastapi`) |
-| `list_guidelines` | List all available guidelines |
-| `get_guideline` | Get a specific guideline by ID |
-| `get_ruleset` | Get a tool configuration ruleset (e.g., `typescript-production`) |
+### Generated Output (do not edit)
+
+`generated/rulesets/` — standalone ruleset markdown files
+`generated/site/` — complete MkDocs site (docs + mkdocs.yml)
+
+## CI/CD
+
+- `deploy-pages.yml` — on push to `main`: installs deps, runs `pnpm generate`, builds MkDocs site, deploys to GitHub Pages
+- Site URL: https://chrismlittle123.github.io/standards/
 
 ## Workflow
 
-- **Branch:** Create feature branches from `main`
-- **CI:** GitHub Actions validates and builds
-- **Deploy:** GitHub Pages serves the guidelines site on push to `main`
-- **Commits:** Use conventional commits (`feat:`, `fix:`, `chore:`, etc.)
+- Create feature branches from `main`
+- Use conventional commits (`feat:`, `fix:`, `chore:`, etc.)
 
-## Project-Specific Notes
+## MCP Tools
 
-- The `generated/` directory is auto-generated — run `pnpm generate` after modifying guidelines or rulesets
-- Adding a new guideline: create a markdown file in `guidelines/`, then regenerate
-- Adding a new ruleset: create a TOML file in `rulesets/`, then regenerate
+Use these to query the standards registry at any time:
+
+| Tool | Purpose |
+|------|---------|
+| `get_standards` | Get guidelines matching a context string (e.g., `typescript fastapi`) |
+| `list_guidelines` | List all available guidelines with metadata |
+| `get_guideline` | Get a specific guideline by ID |
+| `get_ruleset` | Get a ruleset by ID (e.g., `typescript-production`) |
