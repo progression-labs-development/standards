@@ -4,27 +4,21 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Project Overview
 
-This is the central registry of coding standards, guidelines, and rulesets for Progression Labs. It produces two outputs:
-1. A MkDocs Material documentation site deployed to GitHub Pages
-2. Generated markdown consumed by the `@standards-kit/conform` MCP server
+This is the central registry of coding standards, guidelines, and rulesets for Progression Labs. It is consumed by the `@standards-kit/conform` MCP server, which dynamically composes relevant guidelines based on project context.
 
 ## Commands
 
 | Task | Command |
 |------|---------|
-| Install | `pnpm install` |
-| Generate all output | `pnpm generate` |
-| Build TypeScript | `pnpm build` |
-| Dev (watch mode) | `pnpm dev` |
+| Validate rulesets | `npx @standards-kit/conform validate registry` |
+| Validate guidelines | `npx @standards-kit/conform validate guidelines ./guidelines` |
 
-After modifying any guideline (`guidelines/*.md`) or ruleset (`rulesets/*.toml`), run `pnpm generate` to regenerate the `generated/` directory.
+## Structure
 
-## Architecture
-
-The generator (`src/index.ts`) is a single-file TypeScript script that:
-1. Reads TOML rulesets from `rulesets/` and converts them to markdown
-2. Reads markdown guidelines from `guidelines/`, validates their YAML frontmatter against schema constraints
-3. Outputs everything into `generated/` — both raw ruleset markdown and a full MkDocs site structure (`generated/site/docs/` + `mkdocs.yml`)
+```
+guidelines/    # Markdown guideline documents
+rulesets/      # TOML ruleset definitions (e.g., typescript-production.toml)
+```
 
 ### Guidelines
 
@@ -37,17 +31,7 @@ Markdown files in `guidelines/` with YAML frontmatter. Required frontmatter fiel
 
 ### Rulesets
 
-TOML files in `rulesets/` defining tool configurations at different strictness tiers (production/internal/prototype) for TypeScript and Python. The TOML structure uses nested sections (e.g., `[code.linting.eslint.rules]`) that get rendered into hierarchical markdown.
-
-### Generated Output (do not edit)
-
-`generated/rulesets/` — standalone ruleset markdown files
-`generated/site/` — complete MkDocs site (docs + mkdocs.yml)
-
-## CI/CD
-
-- `deploy-pages.yml` — on push to `main`: installs deps, runs `pnpm generate`, builds MkDocs site, deploys to GitHub Pages
-- Site URL: https://progression-labs-development.github.io/standards/
+TOML files in `rulesets/` defining tool configurations at different strictness tiers (production/internal/prototype) for TypeScript and Python. The TOML structure uses nested sections (e.g., `[code.linting.eslint.rules]`).
 
 ## Workflow
 
