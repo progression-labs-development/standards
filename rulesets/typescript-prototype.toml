@@ -3,13 +3,3 @@
 
 [code.linting.eslint]
 enabled = true
-
-# =============================================================================
-# Process - Commit Conventions
-# =============================================================================
-
-[process.commits]
-enabled = true
-types = ["feat", "fix", "chore", "docs", "refactor", "test", "style", "perf", "ci", "build"]
-require_scope = false
-max_subject_length = 100

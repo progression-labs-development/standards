@@ -1,0 +1,34 @@
+# Base - Internal
+# Process standards for internal repositories (root standards.toml)
+
+# =============================================================================
+# Process - Git Hooks
+# =============================================================================
+
+[process.hooks]
+enabled = true
+require_husky = true
+require_hooks = ["pre-push", "commit-msg"]
+
+# =============================================================================
+# Process - Commit Conventions
+# =============================================================================
+
+[process.commits]
+enabled = true
+types = ["feat", "fix", "chore", "docs", "refactor", "test", "style", "perf", "ci", "build"]
+require_scope = false
+max_subject_length = 100
+
+# =============================================================================
+# Process - Repository Settings
+# =============================================================================
+
+[process.repo]
+enabled = true
+require_branch_protection = true
+
+[process.repo.ruleset]
+branch = "prod"
+enforcement = "active"
+required_reviews = 0

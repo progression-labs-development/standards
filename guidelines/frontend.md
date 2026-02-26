@@ -62,13 +62,15 @@ pnpm add progression-labs-development/ui
 
 ### Standards Enforcement
 
-Frontend projects use frontend-specific rulesets that include React and Next.js rules on top of the base TypeScript rules:
+Frontend projects use frontend-specific code rulesets that include React and Next.js rules on top of the base TypeScript rules:
 
 ```toml
 [standards]
 ruleset = "typescript-frontend-production"  # or typescript-frontend-internal
 ```
 
-Available rulesets:
+Available code rulesets:
 - `typescript-frontend-production` — Customer-facing frontends (strictest)
 - `typescript-frontend-internal` — Internal dashboards and tools
+
+The root `standards.toml` handles process standards separately — see [Repository guideline](./repository.md).

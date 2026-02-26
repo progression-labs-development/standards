@@ -148,16 +148,18 @@ Use `@progression-labs-development/conform` to enforce Progression Labs standard
 npx @progression-labs-development/conform validate
 ```
 
-Every repository must have a `standards.toml` in the root that specifies which ruleset to use:
+Each project needs a `standards.toml` that specifies which code ruleset to use:
 
 ```toml
 [standards]
 ruleset = "python-production"  # or python-internal, python-prototype
 ```
 
-Available rulesets:
+Available code rulesets:
 - `python-production` — Customer-facing services (strictest)
 - `python-internal` — Internal tools and services
 - `python-prototype` — Experimental projects (most relaxed)
+
+The root `standards.toml` handles process standards (commits, hooks, branch protection) separately — see [Repository guideline](./repository.md).
 
 Run in CI to validate project structure and configuration against Progression Labs standards.

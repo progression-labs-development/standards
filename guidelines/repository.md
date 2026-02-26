@@ -24,7 +24,29 @@ Prototypes can move faster.
 
 ### standards.toml
 
-Every repository must have a `standards.toml` file. See [TypeScript](./typescript.md) and [Python](./python.md) guidelines for language-specific configuration.
+Every repository has two levels of `standards.toml`:
+
+1. **Root `standards.toml`** — Process standards (commits, hooks, branch protection). Uses a `base-*` ruleset.
+2. **Per-project `standards.toml`** — Code standards (linting, types, security). Uses a language-specific ruleset.
+
+**Root standards.toml:**
+```toml
+[standards]
+ruleset = "base-production"  # or base-internal, base-prototype
+```
+
+**Per-project standards.toml:**
+```toml
+[standards]
+ruleset = "typescript-production"  # or python-internal, etc.
+```
+
+In a monorepo, the root handles process and each app/package has its own code standards. In a single-project repo, you still have both files — root for process, project for code.
+
+Available base rulesets:
+- `base-production` — Hooks, branch protection, conventional commits
+- `base-internal` — Same process rules as production
+- `base-prototype` — Conventional commits only (no hooks, no branch protection)
 
 ### README
 

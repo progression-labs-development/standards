@@ -88,18 +88,20 @@ Use `@progression-labs-development/conform` to enforce Progression Labs standard
 pnpm add -D @progression-labs-development/conform
 ```
 
-Every repository must have a `standards.toml` in the root that specifies which ruleset to use:
+Each project needs a `standards.toml` that specifies which code ruleset to use:
 
 ```toml
 [standards]
 ruleset = "typescript-production"  # or typescript-internal, typescript-prototype
 ```
 
-Available rulesets:
+Available code rulesets:
 - `typescript-production` — Customer-facing services (strictest)
 - `typescript-internal` — Internal tools and services
 - `typescript-prototype` — Experimental projects (most relaxed)
 
 For frontend projects, use the frontend-specific rulesets instead — see [Frontend guideline](./frontend.md).
+
+The root `standards.toml` handles process standards (commits, hooks, branch protection) separately — see [Repository guideline](./repository.md).
 
 Run in CI to validate project structure and configuration against Progression Labs standards.
