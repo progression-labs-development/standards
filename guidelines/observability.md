@@ -3,7 +3,7 @@ id: observability
 title: Observability
 category: operations
 priority: 2
-tags: [typescript, python, logging, observability, backend]
+tags: [typescript, python, logging, observability, monitoring, signoz, backend]
 author: Engineering Team
 lastUpdated: "2025-02-26"
 summary: "Logging, tracing, and monitoring standards"

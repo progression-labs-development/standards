@@ -1,5 +1,6 @@
 # Base - Internal
 # Process standards for internal repositories (root standards.toml)
+# Relaxed compared to production: no pre-push hook, evaluate-only enforcement
 
 # =============================================================================
 # Process - Git Hooks
@@ -8,7 +9,7 @@
 [process.hooks]
 enabled = true
 require_husky = true
-require_hooks = ["pre-push", "commit-msg"]
+require_hooks = ["commit-msg"]
 
 # =============================================================================
 # Process - Commit Conventions
@@ -30,5 +31,5 @@ require_branch_protection = true
 
 [process.repo.ruleset]
 branch = "prod"
-enforcement = "active"
+enforcement = "evaluate"
 required_reviews = 0

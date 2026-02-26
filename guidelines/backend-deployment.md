@@ -3,7 +3,7 @@ id: backend-deployment
 title: Backend Deployment
 category: infrastructure
 priority: 3
-tags: [typescript, python, gcp, aws, cloud-run, cloud-functions, deployment, backend]
+tags: [typescript, python, gcp, aws, cloud-run, cloud-functions, deployment, backend, pulumi]
 author: Engineering Team
 lastUpdated: "2025-02-26"
 summary: "Deployment standards for backend services on GCP and AWS"

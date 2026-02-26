@@ -72,5 +72,6 @@ ruleset = "typescript-frontend-production"  # or typescript-frontend-internal
 Available code rulesets:
 - `typescript-frontend-production` — Customer-facing frontends (strictest)
 - `typescript-frontend-internal` — Internal dashboards and tools
+- `typescript-frontend-prototype` — Experimental frontends (most relaxed)
 
 The root `standards.toml` handles process standards separately — see [Repository guideline](./repository.md).

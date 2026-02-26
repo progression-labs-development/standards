@@ -102,3 +102,10 @@ folder_case = "kebab-case"
 extensions = ["tsx"]
 file_case = "kebab-case"
 folder_case = "kebab-case"
+
+# =============================================================================
+# Disable Comments Detection
+# =============================================================================
+
+[code.quality.disable-comments]
+enabled = true

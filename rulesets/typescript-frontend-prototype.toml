@@ -1,5 +1,5 @@
-# TypeScript - Prototype
-# Relaxed checks for rapid prototyping
+# TypeScript - Frontend Prototype
+# Relaxed checks for rapid frontend prototyping
 
 [code.linting.eslint]
 enabled = true
