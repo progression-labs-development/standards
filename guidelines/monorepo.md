@@ -3,7 +3,7 @@ id: monorepo
 title: Monorepo
 category: architecture
 priority: 4
-tags: [typescript, pnpm, monorepo]
+tags: [typescript, python, pnpm, uv, monorepo]
 author: Engineering Team
 lastUpdated: "2025-02-26"
 summary: "Monorepo structure and pnpm workspace standards"
@@ -81,8 +81,6 @@ config = "../../packages/config/eslint"
 enabled = true
 strict = true
 
-[tools.prettier]
-enabled = true
 ```
 
 Each app and package that contains source code should have its own `standards.toml` defining:

@@ -25,3 +25,34 @@ Prototypes can move faster.
 ### standards.toml
 
 Every repository must have a `standards.toml` file. See [TypeScript](./typescript.md) and [Python](./python.md) guidelines for language-specific configuration.
+
+### README
+
+Every repository must have a `README.md` that includes:
+
+- What the project does (one sentence)
+- How to install and run it locally
+- Environment variables required
+- How to run tests
+
+### .gitignore
+
+Every repository must have a `.gitignore`. At minimum, ignore:
+
+- `node_modules/`, `.venv/`, `dist/`, `build/`
+- `.env` and `.env.*` (except `.env.example`)
+- OS files (`.DS_Store`, `Thumbs.db`)
+- IDE config (`.idea/`, `.vscode/` — except shared settings)
+
+### Branch Protection
+
+Production and internal repositories must enable branch protection on the default branch. See [CI/CD guideline](./ci-cd.md) for branching strategy details.
+
+### Git Hooks
+
+Production and internal repositories must use Husky for Git hooks:
+
+- `pre-push` — lint and type check before pushing
+- `commit-msg` — validate conventional commit format
+
+Prototype repositories may skip hooks to move faster.

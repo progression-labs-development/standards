@@ -2,7 +2,7 @@
 id: python
 title: Python
 category: architecture
-priority: 2
+priority: 1
 tags: [python, uv, pydantic, ruff, llm, livekit-agent]
 author: Engineering Team
 lastUpdated: "2025-02-26"
@@ -52,6 +52,7 @@ Use TypeScript for:
 | uv | Package manager (required) |
 | Ruff | Linting |
 | ty | Type checking |
+| Vulture | Dead code detection (production/internal only) |
 | Pydantic | Data modeling |
 | pytest | Testing (see [Testing guideline](./testing.md)) |
 

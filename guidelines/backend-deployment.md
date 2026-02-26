@@ -2,7 +2,7 @@
 id: backend-deployment
 title: Backend Deployment
 category: infrastructure
-priority: 7
+priority: 3
 tags: [typescript, python, gcp, aws, cloud-run, cloud-functions, deployment, backend]
 author: Engineering Team
 lastUpdated: "2025-02-26"

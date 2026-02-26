@@ -2,7 +2,7 @@
 id: database
 title: Database
 category: infrastructure
-priority: 6
+priority: 4
 tags: [typescript, database, postgresql, drizzle, orm, backend]
 author: Engineering Team
 lastUpdated: "2025-02-26"

@@ -38,7 +38,7 @@ Only allowed as a thin BFF layer:
 - Aggregating backend calls
 - Proxying to avoid CORS
 
-**Not allowed:** Business logic, database access, anything requiring unit tests.
+**Not allowed:** Business logic, database access, or anything complex enough to need unit tests. API routes should be simple pass-throughs.
 
 ### Components
 

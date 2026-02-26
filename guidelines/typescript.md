@@ -43,6 +43,8 @@ See [Python guideline](./python.md) for those cases.
 | pnpm | Package manager |
 | TypeScript 5.4+ | Language |
 | ESLint | Linting |
+| Knip | Dead code detection |
+| Husky | Git hooks (pre-push, commit-msg) |
 
 ### Naming Conventions
 

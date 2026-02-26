@@ -1,7 +1,7 @@
 ---
 id: llm
 title: LLM Services
-category: operations
+category: architecture
 priority: 3
 tags: [python, llm, langfuse, observability, ai, rag, evals]
 author: Engineering Team

@@ -35,7 +35,7 @@ max-warnings = 0
 "consistent-return" = "error"
 
 # Import plugin
-"import/no-cycle" = { severity = "error", maxDepth = 10 }
+"import/no-cycle" = { severity = "error", maxDepth = 2 }
 
 # TypeScript-ESLint - Type safety
 "@typescript-eslint/no-unused-vars" = { severity = "error", argsIgnorePattern = "^_", varsIgnorePattern = "^_" }
