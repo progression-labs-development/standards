@@ -1,0 +1,12 @@
+[metadata]
+tier = "internal"
+
+[extends]
+registry = "github:progression-labs-development/standards"
+rulesets = ["base-internal"]
+
+[process.commits]
+enabled = true
+types = ["feat", "fix", "chore", "docs", "refactor", "test", "style", "perf", "ci", "build"]
+require_scope = false
+max_subject_length = 100
