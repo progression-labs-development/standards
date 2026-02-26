@@ -44,9 +44,18 @@ Every repository must have a `.gitignore`. At minimum, ignore:
 - OS files (`.DS_Store`, `Thumbs.db`)
 - IDE config (`.idea/`, `.vscode/` — except shared settings)
 
+### Branching
+
+| Repo type | Branches | Default branch |
+|-----------|----------|----------------|
+| Deployment repos (APIs, frontends, infra) | `dev`, `stag`, `prod` | `dev` |
+| Library repos (shared packages) | `main` | `main` |
+
+See [CI/CD guideline](./ci-cd.md) for full branching strategy and deployment flow.
+
 ### Branch Protection
 
-Production and internal repositories must enable branch protection on the default branch. See [CI/CD guideline](./ci-cd.md) for branching strategy details.
+Production and internal repositories must enable branch protection on the `prod` branch (or `main` for library repos).
 
 ### Git Hooks
 

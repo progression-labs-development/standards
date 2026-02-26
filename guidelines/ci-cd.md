@@ -44,7 +44,7 @@ This is run automatically in CI via the `lint` action.
 
 ### Git & Branching Strategy
 
-Branches mirror environments:
+**Deployment repos** (APIs, frontends, infrastructure) use branches that mirror environments:
 
 | Branch | Environment |
 |--------|-------------|
@@ -54,9 +54,11 @@ Branches mirror environments:
 
 Set `dev` as the default branch in GitHub so PRs target it by default. Merging up (`dev → stag → prod`) promotes code through environments.
 
+**Library repos** (shared packages) use `main` only with standard PR flow. They publish to npm/PyPI on merge — no environment branches needed.
+
 #### Prototype Phase
 
-New projects start simple — just `main` branch, no extra branches, no ceremony. Ship fast. Graduate to the full `dev → stag → prod` flow once you have users.
+New projects start simple — just `prod` branch, no extra branches, no ceremony. Ship fast. Graduate to the full `dev → stag → prod` flow once you have users.
 
 ### Backend Deployment
 

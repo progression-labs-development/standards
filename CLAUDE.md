@@ -35,7 +35,7 @@ TOML files in `rulesets/` defining tool configurations at different strictness t
 
 ## Workflow
 
-- Create feature branches from `main`
+- This is a library repo — create feature branches from `main`
 - Use conventional commits (`feat:`, `fix:`, `chore:`, etc.)
 
 ## MCP Tools

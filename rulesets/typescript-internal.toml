@@ -117,6 +117,6 @@ enabled = true
 require_branch_protection = true
 
 [process.repo.ruleset]
-branch = "main"
+branch = "prod"
 enforcement = "active"
 required_reviews = 0
