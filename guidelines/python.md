@@ -3,7 +3,7 @@ id: python
 title: Python
 category: architecture
 priority: 2
-tags: [python, uv, pydantic, ruff, llm, livekit-agents]
+tags: [python, uv, pydantic, ruff, llm, livekit-agent]
 author: Engineering Team
 lastUpdated: "2025-02-26"
 summary: "Python language standards for LLM and data services"
@@ -18,7 +18,7 @@ Python is only used when you need an existing Python `progression-labs-developme
 | Package / Platform | Use Case |
 |--------------------|----------|
 | `progression-labs-development/llm` | LLM services, RAG, evals |
-| `progression-labs-development/livekit-agents` | Voice/video agents |
+| `progression-labs-development/livekit-agent` | Voice/video agents |
 | AWS Lambda | Data engineering, ETL triggers, S3 event handlers |
 
 **Why Python for Lambda?** The Python Lambda ecosystem is mature with well-tested patterns for data engineering workflows. All Lambda functions are exclusively for data pipelines, not APIs.
@@ -111,7 +111,7 @@ Python code lives in dedicated package repos:
 
 ```
 progression-labs-development/llm/              # LLM package
-progression-labs-development/livekit-agents/   # LiveKit package
+progression-labs-development/livekit-agent/   # LiveKit package
 ```
 
 Application repos import these packages — they don't contain Python source code.

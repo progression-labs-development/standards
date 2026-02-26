@@ -36,7 +36,7 @@ tags: [typescript, database, postgresql, drizzle, orm, backend]
 | `llm` | operations | python, llm, langfuse, observability, ai, rag, evals | Standards for LLM services, RAG pipelines, and AI observability |
 | `monorepo` | architecture | typescript, pnpm, monorepo | Monorepo structure and pnpm workspace standards |
 | `observability` | operations | typescript, python, logging, observability, backend | Logging, tracing, and monitoring standards |
-| `python` | architecture | python, uv, pydantic, ruff, llm, livekit-agents | Python language standards for LLM and data services |
+| `python` | architecture | python, uv, pydantic, ruff, llm, livekit-agent | Python language standards for LLM and data services |
 | `repository` | architecture | repository, metadata, standards | Repository metadata, structure, and documentation standards |
 | `rest-apis` | architecture | typescript, python, api, zod, pydantic, backend | REST API design standards including validation and error handling |
 | `secrets` | security | typescript, python, security, infrastructure, gcp, aws, secrets, deployment | Standards for creating, storing, and accessing secrets across all environments |

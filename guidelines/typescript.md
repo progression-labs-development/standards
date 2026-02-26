@@ -23,14 +23,14 @@ TypeScript is the default language for almost everything.
 | Infrastructure | Pulumi |
 | Configuration | ESLint, build tools |
 | CLI tools | Internal tooling |
-| Shared packages | `progression-labs-development/auth`, `progression-labs-development/monitoring` |
+| Shared packages | `progression-labs-development/auth`, `progression-labs-development/fastify-api` |
 
 ### When NOT to Use TypeScript
 
 Use Python instead for:
 
 - `progression-labs-development/llm` — LLM services
-- `progression-labs-development/livekit-agents` — Voice/video agents
+- `progression-labs-development/livekit-agent` — Voice/video agents
 - **AWS Lambda functions** — Data engineering, ETL triggers (Python Lambda ecosystem is mature)
 
 See [Python guideline](./python.md) for those cases.
@@ -39,7 +39,7 @@ See [Python guideline](./python.md) for those cases.
 
 | Tool | Purpose |
 |------|---------|
-| Node.js 22 LTS | Runtime |
+| Node.js 20+ LTS | Runtime |
 | pnpm | Package manager |
 | TypeScript 5.4+ | Language |
 | ESLint | Linting |

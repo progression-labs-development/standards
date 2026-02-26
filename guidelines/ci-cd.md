@@ -15,10 +15,11 @@ Use the `progression-labs-development/github-actions` reusable workflows for all
 
 ### Requirements
 
-- Use `progression-labs-development/github-actions` for all workflows — never write raw workflow YAML
+- Use `progression-labs-development/github-actions` reusable actions for CI workflows (lint, test, build, standards checks)
+- Deploy and publish workflows may use custom YAML but must follow OIDC patterns below
 - OIDC authentication to both AWS and GCP (no static keys)
 - Cross-account OIDC policies enable AWS ↔ GCP access where needed
-- Branch-per-environment strategy (dev/stag/prod branches)
+- Branch-per-environment strategy (dev/stag/prod branches) for service repos
 
 ### What the Package Provides
 
@@ -138,7 +139,7 @@ All must pass before deploy:
 
 - Deploy from local machine
 - Use long-lived AWS keys
-- Write custom workflow YAML
+- Write custom CI workflow YAML (use reusable actions for lint/test/build)
 - Skip checks
 - Push directly to prod (always go through dev → stag first)
 

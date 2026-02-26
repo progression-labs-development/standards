@@ -11,7 +11,7 @@ summary: "Frontend architecture standards for Next.js and React"
 
 ## Frontend
 
-All frontends use Next.js with the `progression-labs-development/ui` component library.
+All frontends use Next.js. New frontends should use the `progression-labs-development/ui` component library for consistency.
 
 ### Stack
 
@@ -42,15 +42,15 @@ Only allowed as a thin BFF layer:
 
 ### Components
 
-Use `progression-labs-development/ui` for all standard components. This gives all Progression Labs apps a consistent look and feel.
+New frontends should use `progression-labs-development/ui` for standard components. This gives all Progression Labs apps a consistent look and feel.
 
 ```bash
 pnpm add progression-labs-development/ui
 ```
 
-- Use `progression-labs-development/ui` components by default for simplicity
+- Use `progression-labs-development/ui` components for new projects
 - Custom components are allowed when needed, but prefer extending the library
-- Built with React + Tailwind CSS
+- Built with React + Tailwind CSS + Radix UI primitives
 
 ### API Client Generation
 
