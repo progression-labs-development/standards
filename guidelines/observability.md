@@ -39,7 +39,7 @@ Instrumentation is automatic when using the standard packages:
 | `message` | Human-readable message |
 | `requestId` | Correlation ID |
 | `service` | Service name |
-| `environment` | development, staging, production |
+| `environment` | dev, stag, prod |
 
 ### Log Levels
 

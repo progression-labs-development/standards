@@ -119,7 +119,7 @@ steps:
 {service}/{environment}
 ```
 
-Examples: `api/production`, `llm-service/staging`
+Examples: `api/prod`, `llm-service/stag`
 
 ### What NOT to Do
 
