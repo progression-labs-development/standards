@@ -39,7 +39,7 @@ See [Python guideline](./python.md) for those cases.
 
 | Tool | Purpose |
 |------|---------|
-| Node.js 20+ LTS | Runtime |
+| Node.js 22 LTS | Runtime |
 | pnpm | Package manager |
 | TypeScript 5.4+ | Language |
 | ESLint | Linting |
