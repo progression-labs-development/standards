@@ -33,10 +33,10 @@ Use the `progression-labs-development/github-actions` reusable workflows for all
 
 ### Standards Enforcement
 
-All repos must use `@standards-kit/conform` to validate against Progression Labs standards:
+All repos must use `@progression-labs-development/conform` to validate against Progression Labs standards:
 
 ```bash
-pnpm add -D @standards-kit/conform
+pnpm add -D @progression-labs-development/conform
 ```
 
 This is run automatically in CI via the `lint` action.

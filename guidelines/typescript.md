@@ -55,7 +55,7 @@ See [Python guideline](./python.md) for those cases.
 - Use strict TypeScript (`strict: true`)
 - Use pnpm (not npm or yarn)
 - Use ESLint for linting
-- Use `@standards-kit/conform` to enforce standards
+- Use `@progression-labs-development/conform` to enforce standards
 - See [Testing guideline](./testing.md) for test structure
 
 ### Constants
@@ -80,10 +80,10 @@ This applies to:
 
 ### Standards Enforcement
 
-Use `@standards-kit/conform` to enforce Progression Labs standards.
+Use `@progression-labs-development/conform` to enforce Progression Labs standards.
 
 ```bash
-pnpm add -D @standards-kit/conform
+pnpm add -D @progression-labs-development/conform
 ```
 
 Every repository must have a `standards.toml` in the root that specifies which ruleset to use:

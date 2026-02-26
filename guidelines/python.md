@@ -141,10 +141,10 @@ This applies to:
 
 ### Standards Enforcement
 
-Use `@standards-kit/conform` to enforce Progression Labs standards.
+Use `@progression-labs-development/conform` to enforce Progression Labs standards. This is an npm package — install it from the TypeScript side of your monorepo or run it via `npx`:
 
 ```bash
-uv add --dev @standards-kit/conform
+npx @progression-labs-development/conform validate
 ```
 
 Every repository must have a `standards.toml` in the root that specifies which ruleset to use:
