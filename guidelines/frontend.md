@@ -5,7 +5,7 @@ category: architecture
 priority: 5
 tags: [typescript, nextjs, react, frontend, vercel]
 author: Engineering Team
-lastUpdated: "2024-03-15"
+lastUpdated: "2025-02-26"
 summary: "Frontend architecture standards for Next.js and React"
 ---
 
@@ -59,3 +59,16 @@ pnpm add progression-labs-development/ui
 - Type-safe frontend API calls
 - Stays in sync with backend schemas (Zod → OpenAPI → client)
 - No manual API client code
+
+### Standards Enforcement
+
+Frontend projects use frontend-specific rulesets that include React and Next.js rules on top of the base TypeScript rules:
+
+```toml
+[standards]
+ruleset = "typescript-frontend-production"  # or typescript-frontend-internal
+```
+
+Available rulesets:
+- `typescript-frontend-production` — Customer-facing frontends (strictest)
+- `typescript-frontend-internal` — Internal dashboards and tools

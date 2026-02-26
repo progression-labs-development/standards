@@ -26,7 +26,7 @@ tags: [typescript, database, postgresql, drizzle, orm, backend]
 
 | Guideline | Category | Tags | Summary |
 |-----------|----------|------|---------|
-| `auth` | security | typescript, python, auth, security, backend | Authentication patterns and session management |
+| `auth` | security | typescript, python, auth, security, backend | Authentication patterns and session management standards |
 | `backend-deployment` | infrastructure | typescript, python, gcp, aws, cloud-run, cloud-functions, deployment, backend | Deployment standards for backend services on GCP and AWS |
 | `ci-cd` | operations | typescript, python, github-actions, pulumi, deployment, aws, gcp | CI/CD pipeline standards using GitHub Actions and Pulumi |
 | `conventions` | architecture | typescript, python, json, api, backend, frontend | Data format conventions for JSON, dates, IDs, and naming |
@@ -39,7 +39,7 @@ tags: [typescript, database, postgresql, drizzle, orm, backend]
 | `python` | architecture | python, uv, pydantic, ruff, llm, livekit-agents | Python language standards for LLM and data services |
 | `repository` | architecture | repository, metadata, standards | Repository metadata, structure, and documentation standards |
 | `rest-apis` | architecture | typescript, python, api, zod, pydantic, backend | REST API design standards including validation and error handling |
-| `secrets` | security | typescript, python, security, infrastructure, gcp, aws, secrets, deployment | Standards for creating, storing, and accessing secrets |
+| `secrets` | security | typescript, python, security, infrastructure, gcp, aws, secrets, deployment | Standards for creating, storing, and accessing secrets across all environments |
 | `testing` | architecture | typescript, python, testing, unit, integration, e2e | Testing standards for unit, integration, and e2e tests |
 | `typescript` | architecture | typescript, nodejs, pnpm, eslint, backend, frontend | TypeScript language and tooling standards for all services |
 

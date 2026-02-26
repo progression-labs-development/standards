@@ -5,7 +5,7 @@ category: security
 priority: 2
 tags: [typescript, python, security, infrastructure, gcp, aws, secrets, deployment]
 author: Engineering Team
-lastUpdated: "2024-03-15"
+lastUpdated: "2025-02-26"
 summary: "Standards for creating, storing, and accessing secrets across all environments"
 ---
 

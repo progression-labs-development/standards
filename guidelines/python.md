@@ -5,7 +5,7 @@ category: architecture
 priority: 2
 tags: [python, uv, pydantic, ruff, llm, livekit-agents]
 author: Engineering Team
-lastUpdated: "2024-03-15"
+lastUpdated: "2025-02-26"
 summary: "Python language standards for LLM and data services"
 ---
 

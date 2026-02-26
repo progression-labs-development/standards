@@ -5,7 +5,7 @@ category: operations
 priority: 3
 tags: [python, llm, langfuse, observability, ai, rag, evals]
 author: Engineering Team
-lastUpdated: "2024-03-15"
+lastUpdated: "2025-02-26"
 summary: "Standards for LLM services, RAG pipelines, and AI observability"
 ---
 

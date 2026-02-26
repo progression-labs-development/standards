@@ -5,7 +5,7 @@ category: architecture
 priority: 1
 tags: [typescript, nodejs, pnpm, eslint, backend, frontend]
 author: Engineering Team
-lastUpdated: "2024-03-15"
+lastUpdated: "2025-02-26"
 summary: "TypeScript language and tooling standards for all services"
 ---
 
@@ -97,5 +97,7 @@ Available rulesets:
 - `typescript-production` — Customer-facing services (strictest)
 - `typescript-internal` — Internal tools and services
 - `typescript-prototype` — Experimental projects (most relaxed)
+
+For frontend projects, use the frontend-specific rulesets instead — see [Frontend guideline](./frontend.md).
 
 Run in CI to validate project structure and configuration against Progression Labs standards.

@@ -5,7 +5,7 @@ category: data
 priority: 3
 tags: [python, pyspark, data, etl, s3, aws]
 author: Engineering Team
-lastUpdated: "2024-03-15"
+lastUpdated: "2025-02-26"
 summary: "Data engineering standards for ETL pipelines and PySpark"
 ---
 

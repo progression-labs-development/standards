@@ -5,7 +5,7 @@ category: architecture
 priority: 4
 tags: [typescript, pnpm, monorepo]
 author: Engineering Team
-lastUpdated: "2024-03-15"
+lastUpdated: "2025-02-26"
 summary: "Monorepo structure and pnpm workspace standards"
 ---
 

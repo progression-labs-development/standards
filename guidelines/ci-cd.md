@@ -5,7 +5,7 @@ category: operations
 priority: 2
 tags: [typescript, python, github-actions, pulumi, deployment, aws, gcp]
 author: Engineering Team
-lastUpdated: "2024-03-15"
+lastUpdated: "2025-02-26"
 summary: "CI/CD pipeline standards using GitHub Actions and Pulumi"
 ---
 
