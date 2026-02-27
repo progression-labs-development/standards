@@ -10,3 +10,11 @@ enabled = true
 
 [code.security.secrets]
 enabled = true
+
+# =============================================================================
+# Dependencies
+# =============================================================================
+
+[code.dependencies]
+enabled = true
+forbidden_lockfiles = ["yarn.lock", "package-lock.json"]

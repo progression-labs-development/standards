@@ -109,3 +109,29 @@ folder_case = "kebab-case"
 
 [code.quality.disable-comments]
 enabled = true
+
+# =============================================================================
+# Dependencies
+# =============================================================================
+
+[code.dependencies]
+enabled = true
+forbidden_lockfiles = ["yarn.lock", "package-lock.json"]
+
+# =============================================================================
+# Imports
+# =============================================================================
+
+[code.imports]
+enabled = true
+
+[[code.imports.blocked]]
+modules = ["node-fetch", "axios", "request"]
+message = "Use built-in fetch"
+
+# =============================================================================
+# Testing
+# =============================================================================
+
+[code.testing]
+enabled = true

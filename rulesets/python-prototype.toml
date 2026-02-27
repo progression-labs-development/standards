@@ -14,3 +14,11 @@ ignore = ["E501", "F401", "F841"]
 
 [code.security.secrets]
 enabled = true
+
+# =============================================================================
+# Dependencies
+# =============================================================================
+
+[code.dependencies]
+enabled = true
+forbidden_lockfiles = ["requirements.txt", "Pipfile", "Pipfile.lock", "poetry.lock"]

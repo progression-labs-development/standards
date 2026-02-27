@@ -44,3 +44,29 @@ enabled = true
 extensions = ["py"]
 file_case = "snake_case"
 folder_case = "snake_case"
+
+# =============================================================================
+# Dependencies
+# =============================================================================
+
+[code.dependencies]
+enabled = true
+forbidden_lockfiles = ["requirements.txt", "Pipfile", "Pipfile.lock", "poetry.lock"]
+
+# =============================================================================
+# Imports
+# =============================================================================
+
+[code.imports]
+enabled = true
+
+[[code.imports.blocked]]
+modules = ["openai", "anthropic", "langfuse"]
+message = "Use progression-labs-development/llm"
+
+# =============================================================================
+# Testing
+# =============================================================================
+
+[code.testing]
+enabled = true
