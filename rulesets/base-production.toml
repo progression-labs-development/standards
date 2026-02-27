@@ -39,7 +39,7 @@ required_reviews = 1
 
 [process.ci]
 enabled = true
-require_actions = ["progression-labs-development/github-actions"]
+source = "progression-labs-development/github-actions"
 
 # =============================================================================
 # Process - Branch Naming
@@ -56,7 +56,7 @@ exclude = ["main", "prod", "staging", "dev"]
 
 [process.docs]
 enabled = true
-require = ["README.md", "CLAUDE.md"]
+required_files = ["README.md", "CLAUDE.md"]
 
 # =============================================================================
 # Process - Forbidden Files
@@ -64,7 +64,7 @@ require = ["README.md", "CLAUDE.md"]
 
 [process.forbidden_files]
 enabled = true
-patterns = [".env", ".env.local", "*.pem", "*.key"]
+files = [".env", ".env.local", "*.pem", "*.key"]
 
 # =============================================================================
 # Process - Workflows
