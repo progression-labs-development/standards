@@ -3,19 +3,26 @@ id: secrets
 title: Secrets Management
 category: security
 priority: 2
-tags: [typescript, python, security, infrastructure, gcp, aws, secrets, deployment]
+tags: [typescript, python, security, infrastructure, gcp, aws, secrets, deployment, pglabs]
 author: Engineering Team
-lastUpdated: "2025-02-26"
+lastUpdated: "2026-02-27"
 summary: "Standards for creating, storing, and accessing secrets across all environments"
 ---
 
 ## Secrets Management
 
-All secrets must be stored in the cloud platform's secrets manager. No local `.env` files.
+All secrets must be stored in the cloud platform's secrets manager and registered in the `pglabs` secret registry. No local `.env` files.
 
 ### Creating Secrets
 
-Always create secrets using the `progression-labs-development/infra` package. Never use `gcloud`, `aws`, or `az` CLI commands to create or delete secret resources.
+Secrets are managed through two layers:
+
+1. **Infrastructure** — `progression-labs-development/infra` creates the secret resource in the cloud platform's secrets manager
+2. **Registry** — `pglabs registry secrets` tracks secret metadata (ownership, rotation, expiry)
+
+#### Step 1: Create the Secret Resource
+
+Create the secret resource using the `progression-labs-development/infra` package. Never use `gcloud`, `aws`, or `az` CLI commands to create or delete secret resources.
 
 ```typescript
 import { Secret } from 'progression-labs-development/infra';
@@ -23,18 +30,54 @@ import { Secret } from 'progression-labs-development/infra';
 const apiKey = new Secret("api/stripe-api-key");
 ```
 
-The package creates the secret resource in the platform's secrets manager. After deployment, manually add the sensitive value through the cloud console or CLI:
+#### Step 2: Set the Secret Value
+
+After Pulumi creates the secret resource, set the sensitive value using the `pglabs` CLI:
 
 ```bash
-# After Pulumi creates the secret resource, set the value:
-# AWS
-aws secretsmanager put-secret-value --secret-id api/stripe-api-key --secret-string "sk_live_..."
-
-# GCP
-echo -n "sk_live_..." | gcloud secrets versions add api-stripe-api-key --data-file=-
+pglabs secrets set api/stripe-api-key
 ```
 
-This ensures all secret resources are tracked in infrastructure-as-code, reviewed in PRs, and managed consistently across environments — while keeping sensitive values out of code and version control.
+The CLI prompts for the value securely and writes it to the appropriate cloud secrets manager.
+
+### Querying Secrets
+
+Use the `pglabs` CLI to discover and inspect secrets:
+
+```bash
+# List all secrets
+pglabs registry secrets list
+
+# Filter by service, environment, type, or status
+pglabs registry secrets list --service stripe
+pglabs registry secrets list --environment production
+pglabs registry secrets list --type api-key
+pglabs registry secrets list --status expiring-soon
+
+# Get metadata for a specific secret
+pglabs registry secrets get <id>
+
+# Search by name or service
+pglabs registry secrets search "stripe"
+```
+
+The registry tracks metadata — not values. It provides a unified view of what secrets exist, who owns them, when they were last rotated, and whether they are expiring.
+
+### Secret Metadata
+
+Every secret in the registry includes:
+
+| Field | Description |
+|-------|-------------|
+| `id` | Auto-generated with `sec_` prefix (e.g., `sec_abc123xyz`) |
+| `name` | Human-readable name |
+| `type` | `API_KEY`, `OAUTH_TOKEN`, `CERTIFICATE`, `SSH_KEY`, `PASSWORD` |
+| `service` | Associated service (e.g., `stripe`, `github`) |
+| `environment` | `production`, `staging`, `development` |
+| `owner` | Person slug (e.g., `alice-smith`) |
+| `lastRotated` | When the secret was last rotated |
+| `expiresAt` | When it expires |
+| `status` | `ACTIVE`, `EXPIRING_SOON`, `EXPIRED` |
 
 ### Supported Secrets Managers
 
@@ -48,7 +91,9 @@ Use the secrets manager corresponding to your project's cloud platform:
 
 - No `.env` files — never store secrets locally
 - All secrets in the platform's secrets manager
-- All secret creation/deletion goes through `progression-labs-development/infra`
+- All secret resources created through `progression-labs-development/infra`
+- All secret values set through `pglabs` CLI
+- All secrets registered in the `pglabs` secret registry
 - Local dev authenticates via platform CLI (AWS SSO, `gcloud auth`, `az login`)
 - CI/CD authenticates via OIDC (no static keys)
 
@@ -127,6 +172,7 @@ The `progression-labs-development/infra` package automatically namespaces secret
 
 ### What NOT to Do
 
+- Set secret values via cloud CLIs directly (`aws secretsmanager put-secret-value`, `gcloud secrets versions add`, etc.) — use `pglabs secrets set` instead
 - Create or delete secret resources via CLI (`gcloud secrets create`, `aws secretsmanager create-secret`, `gcloud secrets delete`, etc.)
 - Create `.env` files
 - Store cloud credentials/access keys in GitHub
@@ -134,3 +180,4 @@ The `progression-labs-development/infra` package automatically namespaces secret
 - Commit secrets to git
 - Share secrets via Slack
 - Write raw Pulumi secret resources instead of using `progression-labs-development/infra`
+- Skip registering secrets in the `pglabs` registry
