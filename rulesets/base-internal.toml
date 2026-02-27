@@ -35,14 +35,6 @@ enforcement = "evaluate"
 required_reviews = 0
 
 # =============================================================================
-# Process - CI
-# =============================================================================
-
-[process.ci]
-enabled = true
-source = "progression-labs-development/github-actions"
-
-# =============================================================================
 # Process - Branch Naming
 # =============================================================================
 
@@ -57,7 +49,6 @@ exclude = ["main", "prod", "staging", "dev"]
 
 [process.docs]
 enabled = true
-required_files = ["README.md"]
 
 # =============================================================================
 # Process - Forbidden Files
@@ -66,15 +57,6 @@ required_files = ["README.md"]
 [process.forbidden_files]
 enabled = true
 files = [".env", ".env.local", "*.pem", "*.key"]
-
-# =============================================================================
-# Process - Workflows
-# =============================================================================
-
-[process.workflows]
-enabled = true
-allowed_sources = ["progression-labs-development/github-actions"]
-require_oidc = true
 
 # =============================================================================
 # Process - Coverage
