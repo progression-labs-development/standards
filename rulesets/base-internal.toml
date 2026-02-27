@@ -30,7 +30,7 @@ enabled = true
 require_branch_protection = true
 
 [process.repo.ruleset]
-branch = "prod"  # Library repos override to "main" in their standards.toml
+branch = "main"
 enforcement = "evaluate"
 required_reviews = 0
 
