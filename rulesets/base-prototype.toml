@@ -17,7 +17,7 @@ max_subject_length = 100
 
 [process.docs]
 enabled = true
-require = ["README.md"]
+required_files = ["README.md"]
 
 # =============================================================================
 # Process - Forbidden Files
@@ -25,4 +25,4 @@ require = ["README.md"]
 
 [process.forbidden_files]
 enabled = true
-patterns = [".env", ".env.local", "*.pem", "*.key"]
+files = [".env", ".env.local", "*.pem", "*.key"]
