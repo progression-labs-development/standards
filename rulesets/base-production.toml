@@ -29,6 +29,6 @@ enabled = true
 require_branch_protection = true
 
 [process.repo.ruleset]
-branch = "prod"
+branch = "prod"  # Library repos override to "main" in their standards.toml
 enforcement = "active"
-required_reviews = 0
+required_reviews = 1

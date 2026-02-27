@@ -141,7 +141,7 @@ All must pass before deploy:
 
 - Deploy from local machine
 - Use long-lived AWS keys
-- Write custom CI workflow YAML (use reusable actions for lint/test/build)
+- Write custom CI workflow YAML for lint/test/build (use reusable actions — deploy/publish may use custom YAML)
 - Skip checks
 - Push directly to prod (always go through dev → stag first)
 

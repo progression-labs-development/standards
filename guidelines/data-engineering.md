@@ -14,7 +14,7 @@ summary: "Data engineering standards for ETL pipelines and PySpark"
 ### Requirements
 
 - All transformations in Python (PySpark)
-- Alert failures to SigNoz via `progression-labs-development/monitoring`
+- Alert failures to SigNoz using the OpenTelemetry Python SDK (`opentelemetry-api`, `opentelemetry-sdk`)
 
 ### Stack
 

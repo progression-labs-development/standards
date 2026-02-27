@@ -20,7 +20,7 @@ Always create secrets using the `progression-labs-development/infra` package. Ne
 ```typescript
 import { Secret } from 'progression-labs-development/infra';
 
-const apiKey = new Secret("StripeApiKey");
+const apiKey = new Secret("api/stripe-api-key");
 ```
 
 The package creates the secret resource in the platform's secrets manager. After deployment, manually add the sensitive value through the cloud console or CLI:
@@ -28,10 +28,10 @@ The package creates the secret resource in the platform's secrets manager. After
 ```bash
 # After Pulumi creates the secret resource, set the value:
 # AWS
-aws secretsmanager put-secret-value --secret-id StripeApiKey --secret-string "sk_live_..."
+aws secretsmanager put-secret-value --secret-id api/stripe-api-key --secret-string "sk_live_..."
 
 # GCP
-echo -n "sk_live_..." | gcloud secrets versions add StripeApiKey --data-file=-
+echo -n "sk_live_..." | gcloud secrets versions add api-stripe-api-key --data-file=-
 ```
 
 This ensures all secret resources are tracked in infrastructure-as-code, reviewed in PRs, and managed consistently across environments — while keeping sensitive values out of code and version control.
@@ -115,11 +115,15 @@ steps:
 
 ### Secret Naming
 
+Use kebab-case names scoped to the service:
+
 ```
-{service}/{environment}
+{service}/{secret-name}
 ```
 
-Examples: `api/prod`, `llm-service/stag`
+Examples: `api/stripe-api-key`, `llm-service/openai-key`
+
+The `progression-labs-development/infra` package automatically namespaces secrets by environment (via the Pulumi stack), so do not include the environment in the secret name.
 
 ### What NOT to Do
 

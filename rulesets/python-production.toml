@@ -5,8 +5,17 @@
 enabled = true
 
 [code.linting.ruff.lint]
-select = ["E", "F", "I", "UP", "B", "SIM", "S", "C4", "RUF"]
+select = ["E", "F", "I", "UP", "B", "SIM", "S", "C4", "C90", "PLR", "RUF"]
 ignore = ["E501"]
+
+[code.linting.ruff.lint.mccabe]
+max-complexity = 10
+
+[code.linting.ruff.lint.pylint]
+max-args = 4
+max-branches = 10
+max-returns = 6
+max-statements = 50
 
 [code.types.ty]
 enabled = true
@@ -14,8 +23,24 @@ enabled = true
 [code.unused.vulture]
 enabled = true
 
+# =============================================================================
+# Security
+# =============================================================================
+
 [code.security.secrets]
 enabled = true
 
 [code.security.pipaudit]
 enabled = true
+
+# =============================================================================
+# Naming Conventions
+# =============================================================================
+
+[code.naming]
+enabled = true
+
+[[code.naming.rules]]
+extensions = ["py"]
+file_case = "snake_case"
+folder_case = "snake_case"

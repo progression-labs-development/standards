@@ -16,7 +16,7 @@ max-warnings = 0
 "max-depth" = { severity = "error", max = 5 }
 "max-params" = { severity = "error", max = 5 }
 "max-lines-per-function" = { severity = "error", max = 100 }
-"max-lines" = { severity = "error", max = 600 }
+"max-lines" = { severity = "error", max = 600 }  # 600 vs 400 backend — JSX markup inflates line counts
 "complexity" = "error"
 "no-console" = { severity = "warn", allow = ["error", "warn", "info"] }
 

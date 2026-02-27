@@ -42,7 +42,7 @@ pnpm add progression-labs-development/infra
 | Component | Service | Use Case |
 |-----------|---------|----------|
 | `Api` | GCP Cloud Run | Fastify APIs, LLM services |
-| `Function` | GCP Cloud Functions | Event-driven, simple endpoints |
+| `Function` | GCP Cloud Functions | Event-driven endpoints (use `Api` for most workloads — Cloud Functions only for simple triggers with no HTTP routing) |
 | `Database` | AWS RDS PostgreSQL | Data storage |
 | `Storage` | GCP Cloud Storage | File uploads |
 | `Secret` | Platform secrets manager | API keys, credentials |
@@ -54,7 +54,7 @@ import { Api, Database, Storage, Secret } from 'progression-labs-development/inf
 
 const db = new Database("Main");
 const bucket = new Storage("Uploads");
-const apiKey = new Secret("StripeApiKey");
+const apiKey = new Secret("stripe-api-key");
 
 const api = new Api("Backend", {
   link: [db, bucket, apiKey],

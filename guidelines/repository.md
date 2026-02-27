@@ -44,9 +44,17 @@ ruleset = "typescript-production"  # or python-internal, etc.
 In a monorepo, the root handles process and each app/package has its own code standards. In a single-project repo, you still have both files — root for process, project for code.
 
 Available base rulesets:
-- `base-production` — Hooks, branch protection, conventional commits
-- `base-internal` — Same process rules as production
+- `base-production` — Pre-push + commit-msg hooks, active branch protection, conventional commits
+- `base-internal` — Commit-msg hook only, evaluate-only branch protection, conventional commits
 - `base-prototype` — Conventional commits only (no hooks, no branch protection)
+
+Base rulesets default to protecting the `prod` branch. Library repos must override this in their root `standards.toml`:
+
+```toml
+[standards]
+ruleset = "base-production"
+branch = "main"
+```
 
 ### README
 
@@ -81,9 +89,13 @@ Production and internal repositories must enable branch protection on the `prod`
 
 ### Git Hooks
 
-Production and internal repositories must use Husky for Git hooks:
+**Production** repositories must use Husky for Git hooks:
 
 - `pre-push` — lint and type check before pushing
+- `commit-msg` — validate conventional commit format
+
+**Internal** repositories require only:
+
 - `commit-msg` — validate conventional commit format
 
 Prototype repositories may skip hooks to move faster.

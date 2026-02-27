@@ -65,7 +65,7 @@ pnpm generate:types --check # CI validation (fails if drift)
 import { z } from 'zod';
 
 export const UserSchema = z.object({
-  id: z.string().uuid(),
+  id: z.string(),  // Prefixed nanoid — see conventions guideline
   email: z.string().email(),
   name: z.string().min(1),
 });

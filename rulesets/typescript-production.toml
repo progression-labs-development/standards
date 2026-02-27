@@ -102,6 +102,10 @@ extensions = ["ts"]
 file_case = "kebab-case"
 folder_case = "kebab-case"
 
+[[code.naming.rules]]
+extensions = ["tsx"]
+file_case = "kebab-case"
+folder_case = "kebab-case"
 
 # =============================================================================
 # Disable Comments Detection
