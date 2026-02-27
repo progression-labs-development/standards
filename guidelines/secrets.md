@@ -3,7 +3,7 @@ id: secrets
 title: Secrets Management
 category: security
 priority: 2
-tags: [typescript, python, security, infrastructure, gcp, aws, secrets, deployment, pglabs]
+tags: [typescript, python, security, infrastructure, gcp, secrets, deployment, pglabs]
 author: Engineering Team
 lastUpdated: "2026-02-27"
 summary: "Standards for creating, storing, and accessing secrets across all environments"
@@ -81,11 +81,11 @@ Every secret in the registry includes:
 
 ### Supported Secrets Managers
 
-Use the secrets manager corresponding to your project's cloud platform:
+Internal projects use GCP Secret Manager by default. When working inside a client organisation, use the secrets manager for that client's cloud:
 
-- **AWS**: AWS Secrets Manager
-- **GCP**: Google Cloud Secret Manager
-- **Azure**: Azure Key Vault
+- **GCP** (default): Google Cloud Secret Manager
+- **AWS** (client orgs): AWS Secrets Manager
+- **Azure** (client orgs): Azure Key Vault
 
 ### Requirements
 
@@ -94,44 +94,25 @@ Use the secrets manager corresponding to your project's cloud platform:
 - All secret resources created through `progression-labs-development/infra`
 - All secret values set through `pglabs` CLI
 - All secrets registered in the `pglabs` secret registry
-- Local dev authenticates via platform CLI (AWS SSO, `gcloud auth`, `az login`)
+- Local dev authenticates via `gcloud auth` (or client platform CLI when working in a client org)
 - CI/CD authenticates via OIDC (no static keys)
 
 ### Local Development
 
-Authenticate using your platform's CLI to **load** secrets at runtime:
+Authenticate using `gcloud` to **load** secrets at runtime:
 
 ```bash
-# AWS
-aws sso login --profile progression-labs-development
-
-# GCP
 gcloud auth application-default login
-
-# Azure
-az login
 ```
+
+When working in a client organisation, use their platform CLI instead (e.g., `aws sso login`, `az login`).
 
 Secrets are loaded automatically by the base packages. CLI usage is only for authenticating your local session — never for creating or managing secrets directly.
 
 ### GitHub Actions
 
-Prefer using `progression-labs-development/github-actions` reusable workflows which handle OIDC automatically. If writing custom workflows, use the appropriate pattern for your platform:
+Prefer using `progression-labs-development/github-actions` reusable workflows which handle OIDC automatically. If writing custom workflows, use GCP Workload Identity Federation:
 
-**AWS:**
-```yaml
-permissions:
-  id-token: write
-  contents: read
-
-steps:
-  - uses: aws-actions/configure-aws-credentials@v4
-    with:
-      role-to-assume: arn:aws:iam::ACCOUNT_ID:role/github-actions
-      aws-region: eu-west-2
-```
-
-**GCP:**
 ```yaml
 permissions:
   id-token: write
@@ -144,19 +125,7 @@ steps:
       service_account: github-actions@PROJECT_ID.iam.gserviceaccount.com
 ```
 
-**Azure:**
-```yaml
-permissions:
-  id-token: write
-  contents: read
-
-steps:
-  - uses: azure/login@v2
-    with:
-      client-id: ${{ secrets.AZURE_CLIENT_ID }}
-      tenant-id: ${{ secrets.AZURE_TENANT_ID }}
-      subscription-id: ${{ secrets.AZURE_SUBSCRIPTION_ID }}
-```
+When working in a client organisation, use the equivalent OIDC pattern for their cloud (e.g., `aws-actions/configure-aws-credentials`, `azure/login`).
 
 ### Secret Naming
 

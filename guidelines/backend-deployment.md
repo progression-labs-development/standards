@@ -3,20 +3,24 @@ id: backend-deployment
 title: Backend Deployment
 category: infrastructure
 priority: 3
-tags: [typescript, python, gcp, aws, cloud-run, cloud-functions, deployment, backend, pulumi]
+tags: [typescript, python, gcp, cloud-run, cloud-functions, deployment, backend, pulumi]
 author: Engineering Team
 lastUpdated: "2025-02-26"
-summary: "Deployment standards for backend services on GCP and AWS"
+summary: "Deployment standards for backend services — GCP by default"
 ---
 
 ## Backend Deployment
 
 Use the `progression-labs-development/infra` package for all deployments.
 
+### Primary Cloud
+
+**GCP is our primary cloud.** All internal Progression Labs projects default to GCP services. When working inside a client's organisation, use whatever cloud that client uses.
+
 ### Requirements
 
 - Use `progression-labs-development/infra` for all infrastructure — never write raw Pulumi directly
-- Choose the right cloud for your workload (see below)
+- Default to GCP services unless there is a specific reason to use another provider
 - All infrastructure changes go through the package
 
 ### Installation
@@ -27,15 +31,16 @@ pnpm add progression-labs-development/infra
 
 ### Cloud Selection
 
-| Workload | Cloud | Why |
-|----------|-------|-----|
+Default to GCP. Only use AWS/Azure when working in a client organisation that requires it, or for a specific service that GCP does not offer an equivalent for.
+
+| Workload | Service | Notes |
+|----------|---------|-------|
 | APIs (Fastify) | GCP Cloud Run | Fast redeployments, scales to zero |
 | Long-running LLM services | GCP Cloud Run | Fast redeployments, no timeout limits |
-| Databases | AWS RDS | Managed PostgreSQL, set up once |
-| Monitoring infrastructure (SigNoz) | AWS | Set up once, rarely changes |
-| Static infrastructure | AWS | Set up once, rarely changes |
-
-**Rule of thumb:** If it redeploys frequently, use GCP Cloud Run. If it's set up once and rarely changes, use AWS.
+| Databases | GCP Cloud SQL | Managed PostgreSQL |
+| File storage | GCP Cloud Storage | File uploads |
+| Event-driven endpoints | GCP Cloud Functions | Simple triggers with no HTTP routing |
+| Monitoring infrastructure (SigNoz) | GCP Compute Engine | Self-hosted observability stack |
 
 ### What the Package Provides
 
@@ -43,9 +48,9 @@ pnpm add progression-labs-development/infra
 |-----------|---------|----------|
 | `Api` | GCP Cloud Run | Fastify APIs, LLM services |
 | `Function` | GCP Cloud Functions | Event-driven endpoints (use `Api` for most workloads — Cloud Functions only for simple triggers with no HTTP routing) |
-| `Database` | AWS RDS PostgreSQL | Data storage |
+| `Database` | GCP Cloud SQL | Data storage (managed PostgreSQL) |
 | `Storage` | GCP Cloud Storage | File uploads |
-| `Secret` | Platform secrets manager | API keys, credentials |
+| `Secret` | GCP Secret Manager | API keys, credentials |
 
 ### Usage
 

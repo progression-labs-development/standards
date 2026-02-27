@@ -3,7 +3,7 @@ id: ci-cd
 title: CI/CD & Deployment
 category: operations
 priority: 2
-tags: [typescript, python, github-actions, pulumi, deployment, aws, gcp]
+tags: [typescript, python, github-actions, pulumi, deployment, gcp]
 author: Engineering Team
 lastUpdated: "2025-02-26"
 summary: "CI/CD pipeline standards using GitHub Actions and Pulumi"
@@ -17,8 +17,7 @@ Use the `progression-labs-development/github-actions` reusable workflows for all
 
 - Use `progression-labs-development/github-actions` reusable actions for CI workflows (lint, test, build, standards checks)
 - Deploy and publish workflows may use custom YAML but must follow OIDC patterns below
-- OIDC authentication to both AWS and GCP (no static keys)
-- Cross-account OIDC policies enable AWS ↔ GCP access where needed
+- OIDC authentication to GCP (no static keys). When working in a client org, use their cloud's OIDC equivalent
 - Branch-per-environment strategy (dev/stag/prod branches) for service repos
 
 ### What the Package Provides
@@ -62,15 +61,15 @@ New projects start simple — just `prod` branch, no extra branches, no ceremony
 
 ### Backend Deployment
 
-Backend services deploy to AWS/GCP via Pulumi through `progression-labs-development/github-actions`.
+Backend services deploy to GCP via Pulumi through `progression-labs-development/github-actions`.
 
-| Branch | URL | AWS Account |
+| Branch | URL | GCP Project |
 |--------|-----|-------------|
 | `dev` | dev.yourapp.com | Dev |
 | `stag` | stag.yourapp.com | Stag |
 | `prod` | yourapp.com | Prod |
 
-Each branch auto-deploys to its matching environment with branch-specific environment variables pointing to the corresponding AWS account. Branch names match environment names match AWS accounts — no confusion.
+Each branch auto-deploys to its matching environment with branch-specific environment variables pointing to the corresponding GCP project. Branch names match environment names match GCP projects — no confusion.
 
 ### Frontend Deployment
 
@@ -81,39 +80,39 @@ Frontends deploy to Vercel. The same branch strategy applies:
 - Assign custom domains to each branch
 - Set environment variables per branch (API URLs, feature flags)
 
-### Repository to AWS OU Mapping
+### Repository to GCP Project Mapping
 
-Each project repository maps to exactly one AWS Organizational Unit (OU). Each OU contains three accounts: dev, stag, and prod. This creates clear ownership, deployment boundaries, and cost attribution.
+Each project repository maps to a set of GCP projects — one per environment (dev, stag, prod). This creates clear ownership, deployment boundaries, and cost attribution.
 
-**Project repositories** deploy infrastructure or applications. Each project repo maps to one OU and deploys only to its three accounts.
+**Project repositories** deploy infrastructure or applications. Each project repo deploys to its own set of GCP projects.
 
-**Shared packages** are libraries consumed by other repositories. They contain no deployable infrastructure and do not map to any OU.
+**Shared packages** are libraries consumed by other repositories. They contain no deployable infrastructure and do not map to any GCP project.
 
 #### Structure
 
 ```
-/project-api        →  Workloads OU  (dev/stag/prod)
-/project-frontend   →  Workloads OU  (dev/stag/prod)
-/data               →  Data OU       (dev/stag/prod)
-/shared-utils       →  No OU (library only)
+/project-api        →  project-api-dev, project-api-stag, project-api-prod
+/project-frontend   →  project-frontend-dev, project-frontend-stag, project-frontend-prod
+/data               →  data-dev, data-stag, data-prod
+/shared-utils       →  No GCP project (library only)
 ```
 
-#### Cross-OU Access
+#### Cross-Project Access
 
-When resources in one OU need access to another (e.g., application accessing data platform), use explicit cross-account IAM roles. This ensures dependencies are intentional and auditable.
+When resources in one project need access to another (e.g., application accessing data platform), use explicit cross-project IAM bindings. This ensures dependencies are intentional and auditable.
 
 #### Benefits
 
-- **Clear ownership:** one repo, one team, one OU
-- **Simple CI/CD:** each repo deploys to exactly three accounts
-- **Cost tracking:** OU-level billing maps to teams/projects
+- **Clear ownership:** one repo, one team, one set of GCP projects
+- **Simple CI/CD:** each repo deploys to exactly three projects
+- **Cost tracking:** project-level billing maps to teams/projects
 - **Security boundaries:** environment isolation by default
 
-#### OU Mapping Anti-Patterns
+#### Anti-Patterns
 
-- ❌ One repo deploying to multiple OUs
-- ❌ Shared packages containing infrastructure
-- ❌ Implicit cross-account access without explicit IAM
+- One repo deploying to multiple unrelated project sets
+- Shared packages containing infrastructure
+- Implicit cross-project access without explicit IAM
 
 ### Deployment Flow
 
@@ -140,7 +139,7 @@ All must pass before deploy:
 ### What NOT to Do
 
 - Deploy from local machine
-- Use long-lived AWS keys
+- Use long-lived service account keys
 - Write custom CI workflow YAML for lint/test/build (use reusable actions — deploy/publish may use custom YAML)
 - Skip checks
 - Push directly to prod (always go through dev → stag first)

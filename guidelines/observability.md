@@ -14,7 +14,7 @@ summary: "Logging, tracing, and monitoring standards"
 Observability has two parts: the **instrumentation** (in your app) and the **backend** (where telemetry goes).
 
 - **Instrumentation:** Built into `progression-labs-development/fastify-api`. Every Fastify API gets OpenTelemetry tracing, logging, and metrics automatically — no manual setup needed.
-- **Backend:** `progression-labs-development/monitoring` deploys and manages the SigNoz observability stack on AWS EC2.
+- **Backend:** `progression-labs-development/monitoring` deploys and manages the SigNoz observability stack on GCP Compute Engine.
 
 ### Requirements
 

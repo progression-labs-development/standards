@@ -31,7 +31,7 @@ Use Python instead for:
 
 - `progression-labs-development/llm` — LLM services
 - `progression-labs-development/livekit-agent` — Voice/video agents
-- **AWS Lambda functions** — Data engineering, ETL triggers (Python Lambda ecosystem is mature)
+- **GCP Cloud Functions** — Data engineering, ETL triggers
 
 See [Python guideline](./python.md) for those cases.
 

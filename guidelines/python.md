@@ -19,9 +19,9 @@ Python is only used when you need an existing Python `progression-labs-developme
 |--------------------|----------|
 | `progression-labs-development/llm` | LLM services, RAG, evals |
 | `progression-labs-development/livekit-agent` | Voice/video agents |
-| AWS Lambda | Data engineering, ETL triggers, S3 event handlers |
+| GCP Cloud Functions | Data engineering, ETL triggers, event handlers |
 
-**Why Python for Lambda?** The Python Lambda ecosystem is mature with well-tested patterns for data engineering workflows. All Lambda functions are exclusively for data pipelines, not APIs.
+**Why Python for Cloud Functions?** The Python ecosystem is mature with well-tested patterns for data engineering workflows. All Cloud Functions are exclusively for data pipelines, not APIs.
 
 If your service doesn't need one of these, use TypeScript instead.
 
